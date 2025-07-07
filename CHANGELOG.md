@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2024-12-19
+
+### Major Release - SEO & Metadata Overhaul
+
+#### Added
+
+- **Comprehensive SEO Implementation**: Complete metadata overhaul for better search engine optimization
+- **Social Media Sharing**: Enhanced Open Graph and Twitter Card metadata for better link sharing
+- **Page-Specific Metadata**: Each page now has unique, targeted metadata for better SEO performance
+- **Robots.txt Generation**: Dynamic robots.txt file for proper search engine crawling
+- **Sitemap.xml Generation**: Dynamic sitemap for better search engine indexing
+- **Web App Manifest**: PWA support with proper app manifest for mobile devices
+- **PrimeReact Best Practices**: Replaced custom ActiveButton with PrimeReact Button component
+- **PrimeFlex Integration**: Proper PrimeFlex CSS import for utility classes
+
+#### Enhanced
+
+- **Root Layout Metadata**: Comprehensive metadata with keywords, geo-location, and structured data
+- **Home Page SEO**: Targeted keywords and descriptions for general contractor services in Monterey
+- **Gallery Page SEO**: Specific metadata for construction portfolio and project showcase
+- **Contact Page SEO**: Optimized for local search and contact-related keywords
+- **Social Sharing**: Rich previews when sharing links on WhatsApp, LinkedIn, Twitter, and other platforms
+- **Mobile Experience**: Enhanced mobile metadata and viewport settings
+- **Search Engine Optimization**: Improved robots configuration and sitemap structure
+
+#### Changed
+
+- **Active Menu Styling**: Replaced custom ActiveButton with PrimeReact Button using custom CSS classes
+- **Menu Component Architecture**: Simplified sidebar menu using only PrimeReact components
+- **CSS Organization**: Moved active button styles to global CSS with proper specificity
+- **Component Structure**: Removed custom ActiveButton component in favor of PrimeReact best practices
+
+#### Technical
+
+- **Metadata Structure**: Implemented proper Next.js 15 metadata API with type safety
+- **SEO Best Practices**: Added canonical URLs, structured data, and proper meta tags
+- **Social Media Optimization**: Enhanced Open Graph and Twitter Card implementation
+- **Performance**: Optimized metadata generation and delivery
+- **Accessibility**: Improved meta descriptions and alt text for better accessibility
+
+#### SEO Features
+
+- **Local SEO**: Geo-targeting for Monterey, CA with proper location metadata
+- **Keyword Optimization**: Targeted keywords for construction services and local search
+- **Rich Snippets**: Structured data for better search result appearance
+- **Mobile Optimization**: Proper viewport and theme color settings
+- **Social Proof**: Enhanced social media sharing with rich previews
+
 ## [1.7.9] - 2024-12-19
 
 ### Added

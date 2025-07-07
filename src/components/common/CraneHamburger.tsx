@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Sidebar } from 'primereact/sidebar';
@@ -8,6 +8,7 @@ import { Button } from 'primereact/button';
 import { navigationItems } from '@/constants/navigation';
 import { companyInfo } from '@/constants/companyInfo';
 import { PageTransition } from './PageTransition';
+import 'primeflex/primeflex.css';
 
 const ICON_SIZE = 44; // px (slightly smaller than logo)
 
@@ -16,15 +17,6 @@ const CraneHamburger = () => {
   const router = useRouter();
   const pathname = usePathname();
   const root = useRef<HTMLDivElement>(null);
-
-  // Debug logging
-  useEffect(() => {
-    console.log('Current pathname:', pathname);
-    navigationItems.forEach(item => {
-      const isActive = isActivePage(item.href);
-      console.log(`Page ${item.label} (${item.href}): ${isActive ? 'ACTIVE' : 'inactive'}`);
-    });
-  }, [pathname]);
 
   const handleMenuToggle = () => {
     setVisible(v => !v);
@@ -42,17 +34,20 @@ const CraneHamburger = () => {
     // Normalize pathname by removing trailing slash
     const normalizedPathname = pathname.replace(/\/$/, '');
     const normalizedHref = href.replace(/\/$/, '');
-
     if (normalizedHref === '') {
       return normalizedPathname === '';
     }
     return normalizedPathname === normalizedHref;
   };
 
+  const handleNavigation = (href: string) => {
+    setVisible(false);
+    router.push(href);
+  };
+
   return (
     <div ref={root}>
       <PageTransition />
-
       <header className="w-full flex items-center justify-between px-4 py-2 glass-effect sticky top-0 z-50">
         <div className="flex items-center">
           <Image
@@ -94,7 +89,6 @@ const CraneHamburger = () => {
           </svg>
         </div>
       </header>
-
       <Sidebar
         visible={visible}
         onHide={() => setVisible(false)}
@@ -115,34 +109,25 @@ const CraneHamburger = () => {
             <h2 className="text-2xl font-bold text-blue-900 mb-1">{companyInfo.name}</h2>
             <p className="text-base text-blue-600">General Contractors</p>
           </div>
-
           {/* Main Navigation Section */}
           <div className="flex-1 p-6">
             <nav className="flex flex-col gap-3">
               {navigationItems.map((item, idx) => {
                 const isActive = isActivePage(item.href);
-                console.log(`Rendering ${item.label}: isActive = ${isActive}, href = ${item.href}`);
                 return (
                   <Button
                     key={item.href}
                     label={item.label}
-                    data-active={isActive ? 'true' : 'false'}
-                    data-index={idx}
-                    data-href={item.href}
                     className={`sidebar-btn w-full h-14 justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium transition-all duration-300 rounded-xl border shadow-sm hover:shadow-md ${
-                      isActive ? `sidebar-active-btn sidebar-active-btn-${idx} ACTIVE-DEBUG` : ''
+                      isActive ? 'p-button-info custom-active-menu-btn' : ''
                     }`}
                     severity={isActive ? 'info' : 'secondary'}
-                    onClick={() => {
-                      setVisible(false);
-                      router.push(item.href);
-                    }}
+                    onClick={() => handleNavigation(item.href)}
                   />
                 );
               })}
             </nav>
           </div>
-
           {/* Footer Section - Contact Info */}
           <div className="flex-shrink-0 p-6 border-t border-blue-200 bg-gradient-to-t from-blue-50/50 to-transparent">
             <div className="text-sm text-blue-700 mb-3 font-semibold">Contact Information</div>
@@ -163,7 +148,6 @@ const CraneHamburger = () => {
           </div>
         </div>
       </Sidebar>
-
       <style jsx>{`
         @keyframes swing {
           0%,

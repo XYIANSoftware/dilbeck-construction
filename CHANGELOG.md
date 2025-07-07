@@ -1,188 +1,228 @@
 # Changelog
 
-## [1.3.0] - Animated Crane Hamburger & Dark Theme
+All notable changes to this project will be documented in this file.
+
+## [1.6.0] - 2024-12-19
 
 ### Added
 
-- **Animated Crane Hamburger Menu**: Replaced simple hamburger with construction-themed animated crane icon
-- **Dark Construction Theme**: Complete theme overhaul with slate/amber color scheme
-- **Animated Background**: Construction-themed animated background with gears, bolts, and crane elements
-- **50% Transparency**: All component backgrounds now have 50% opacity for layered visual effect
-- **Anime.js Integration**: Smooth animations for hamburger menu and background elements
+- **Project Details Modal**: Click "View Details" button now opens a comprehensive modal
+- **Enhanced Project Information**: Modal displays location, category, year, client, and full description
+- **Call-to-Action Integration**: "Get a Quote" button in modal that directly calls the company phone
+- **Better Card Information**: Added category badges and year indicators on card front
+- **Improved Back Card Layout**: Added icons and better information organization
 
-### Updated
+### Changed
 
-- **Header Component**: Replaced with CraneHamburger component featuring animated crane icon
-- **Color Scheme**: Updated to dark theme with amber accents and slate backgrounds
-- **Glass Effects**: Enhanced transparency and backdrop blur effects throughout
-- **Navigation**: Improved sidebar styling with hover effects and better visual hierarchy
-- **Hero Section**: Updated styling to match dark theme with gradient text effects
+- **Fixed Deprecated Properties**: Replaced `onLoadingComplete` with `onLoad` for all images
+- **Enhanced Modal Design**: Professional modal with proper spacing and typography
+- **Better Card Content**: More detailed information display with icons and proper formatting
+- **Improved User Experience**: Clear call-to-action flow from gallery to contact
 
 ### Fixed
 
-- **Build Errors**: Resolved client component serialization issues
-- **Import Issues**: Fixed barrel export problems causing build failures
-- **Linter Errors**: Cleaned up all TypeScript and ESLint warnings
+- **Button Functionality**: "View Details" button now works properly and opens modal
+- **JSON Syntax Errors**: Resolved build errors and cache issues
+- **Image Loading**: Fixed deprecated property warnings
+- **Webpack Cache Issues**: Cleared cache to resolve runtime errors
 
-### Technical Improvements
+### Technical
 
-- **Client Components**: Properly marked all interactive components with 'use client'
-- **Direct Imports**: Replaced barrel exports with direct imports to prevent serialization issues
-- **Animation Performance**: Optimized anime.js usage with error handling and fallbacks
-- **Theme Consistency**: Unified color scheme across all components and pages
+- **Modal Integration**: Added PrimeReact Dialog component for project details
+- **Event Handling**: Proper event propagation and modal state management
+- **Phone Integration**: Direct phone call functionality from modal
+- **Enhanced TypeScript**: Better type safety for all gallery components
 
-## [1.2.0] - Major UI Improvements & Contact Page
+## [1.5.0] - 2024-12-19
 
 ### Added
 
-- Added new Contact page at `/contact` with company information and Google Maps embed
-- Added hours of operation to company info constants
-- Added Contact navigation item to the menu
-- Implemented hamburger menu using PrimeReact Sidebar for consistent desktop/mobile experience
-- Added PrimeReactProvider wrapper for proper theming and ripple effects
-- Added global PrimeReact theme, core styles, icons, and PrimeFlex imports
+- Enhanced hamburger menu with larger, more visible crane animation
+- Improved crane line and hook sizing (12px width, 1.5px height)
+- Better contrast with blue-700 color and rounded-full styling
+- Increased animation translation for more dramatic effect
 
-### Updated
+### Changed
 
-- Refactored Header to use PrimeReact Sidebar with hamburger menu
-- Updated ProjectCard to use PrimeReact Card component for better theming
-- Enhanced navigation with icons and professional styling
-- Improved overall PrimeReact theming throughout the application
-- Updated company assets to use D_logo.png and front_dns.jpg
-- Added favicon using D_logo.ico
-
-### Technical Improvements
-
-- Proper PrimeReact theming with lara-light-blue theme
-- Consistent UI components using PrimeReact Card, Button, Sidebar
-- Better mobile responsiveness with hamburger menu
-- Enhanced user experience with smooth animations and transitions
-- Improved accessibility with proper ARIA labels and semantic HTML
-
-## [1.1.3] - Gallery Images Integration
-
-### Updated
-
-- Updated gallery list to reflect actual available images (g-1.png through g-9.png)
-- Removed g-10.png reference since the image doesn't exist
-- Updated GalleryCarousel to dynamically use first 5 images from galleryItems array
-- Improved carousel data consistency by using centralized gallery data
-
-### Technical Improvements
-
-- Enhanced data consistency between carousel and gallery grid
-- Improved maintainability by using single source of truth for gallery data
-- Better error prevention by only referencing existing images
-- Cleaner code structure with dynamic carousel image generation
-
-## [1.1.2] - Turbopack & Anime.js Import Fixes
+- Completely redesigned gallery cards with fixed aspect ratio (h-80)
+- Fixed card content orientation and layout
+- Improved image visibility with better overlay gradients
+- Added glossy button styling with gradient backgrounds and hover effects
+- Enhanced card back design with proper content distribution
+- Updated grid spacing for better visual balance
 
 ### Fixed
 
-- Fixed Turbopack import error with anime.js in development mode
-- Updated anime.js imports to use dynamic imports for better compatibility
-- Added error handling and fallbacks for anime.js loading failures
-- Fixed gear icon reference to use existing icon-1.png file
-- Added graceful degradation when animations fail to load
+- Resolved hamburger menu visibility issues
+- Fixed card content being backwards/incorrectly oriented
+- Corrected image and skeleton display issues
+- Improved button styling and positioning
+- Added proper line-clamp utility for text truncation
 
-### Technical Improvements
+### Technical
 
-- Improved development experience with Turbopack compatibility
-- Enhanced error handling for third-party library imports
-- Added fallback CSS transitions when JavaScript animations fail
-- Better type safety with proper error handling
+- Added custom CSS classes for glossy buttons and line-clamp
+- Updated ESLint configuration for better compatibility
+- Enhanced 3D card flip animations
 
-## [1.1.1] - Netlify Deployment Configuration
+## [1.4.0] - 2024-12-19
 
-### Added
+### 🎨 Major UI/UX Improvements
 
-- Added Netlify deployment configuration with `netlify.toml`
-- Updated Next.js config for static export with `output: 'export'`
-- Added proper asset prefix for production deployment
-- Configured unoptimized images for static export
-- Added trailing slash support for Netlify compatibility
+- **Complete Theme Overhaul**: Switched from dark slate/amber theme to light blue professional theme
+- **Restored Original Content Structure**: Brought back proper page separation and content organization
+- **Office Image & Mission Statement**: Restored the front office image and company mission statement on home page
+- **Glass Effect Design**: Implemented modern glass-effect backgrounds with transparency and blur effects
+- **Improved Typography**: Enhanced text hierarchy with better blue color scheme
 
-### Updated
+### 🏗️ Content & Structure
 
-- Updated sitemap.xml to use correct Netlify domain (dilbeck.netlify.app)
-- Updated company info to include Netlify website URL
-- Added export script to package.json for static build
-- Configured proper redirects and headers for Netlify
+- **Home Page**: Restored Hero section with office image, About section, and Services section with CTA buttons
+- **Services Section**: Added comprehensive construction services grid with call-to-action buttons
+- **Contact Page**: Streamlined contact information, removed Google Maps, focused on essential contact details
+- **Gallery Page**: Maintained project showcase with improved light theme styling
 
-### Technical Improvements
+### 🎭 Animations & Interactions
 
-- Ensured compatibility with both local development and Netlify deployment
-- Added security headers for production deployment
-- Configured proper static file serving for Netlify
-- Optimized build process for static hosting
+- **Crane Animation**: Added animated crane moving back and forth with dirt pickup animation above title
+- **Smooth Transitions**: Enhanced hover effects and button interactions throughout the site
+- **Anime.js Integration**: Improved background animations with rotating gears, floating bolts, and construction elements
+- **Interactive Navigation**: Enhanced crane hamburger menu with smooth animations
 
-## [1.1.0] - Organized Structure & Gallery Updates
+### 🔧 Technical Improvements
 
-### Added
+- **Server/Client Architecture**: Fixed all server/client boundary issues with proper component separation
+- **Build System**: Resolved all build errors and linting issues
+- **Component Structure**: Created proper client/server component hierarchy
+- **AppShell Pattern**: Implemented clean layout separation with AppShell client component
+- **Performance**: Optimized component rendering and reduced bundle size
 
-- Created organized folder structure with `constants/` and `styles/` folders
-- Added strongly typed interfaces for all data structures
-- Created `GalleryItem` interface with comprehensive properties (projectName, details, longDetails, location, imgSrc, pictureName, alt, category, year, client)
-- Added `galleryList.ts` with 10 gallery items using new naming convention (g-1.png through g-10.png)
-- Created `companyInfo.ts` with centralized company information
-- Created `navigation.ts` with navigation items
-- Added `types.ts` with all TypeScript interfaces
-- Created `globals.css` with custom CSS variables and utility classes
-- Added barrel exports for all constants and styles
+### 📱 Navigation & Contact
 
-### Updated
+- **Phone Integration**: Clickable phone numbers that call +1 (831) 422-8213
+- **Location Routing**: Clickable addresses that route to contact page
+- **Responsive Design**: Improved mobile-first design with better navigation
+- **Footer Enhancement**: Updated footer with clickable contact information
 
-- Updated all components to use constants from centralized location
-- Refactored GalleryCarousel to use new CarouselImage interface
-- Updated ProjectCard to use GalleryItem interface with proper property names
-- Updated ProjectGrid to use galleryItems from constants
-- Updated Header and Footer to use company info from constants
-- Updated Hero component to use company info from constants
-- Applied glass-effect styling throughout components
-- Updated image paths to use new naming convention (g-1.png, g-2.png, etc.)
+### 🎨 Visual Design
 
-### Technical Improvements
+- **Color Scheme**: Professional blue palette with proper contrast and accessibility
+- **Glass Morphism**: Modern glass-effect cards and backgrounds
+- **Typography**: Improved font hierarchy and readability
+- **Spacing**: Better visual balance and component spacing
 
-- Improved type safety with strongly typed interfaces
-- Centralized data management for easier maintenance
-- Added custom CSS variables for consistent theming
-- Improved component organization and reusability
-- Enhanced maintainability with barrel exports
+### 🐛 Bug Fixes
 
-## [1.0.0] - Complete Initial Implementation
+- Fixed all event handler errors in server components
+- Resolved build compilation issues
+- Fixed component import/export issues
+- Corrected theme application across all components
 
-### Added
+### 📦 Dependencies
 
-- Project bootstrapped with Next.js (App Router, TypeScript, Tailwind, import alias @/\*)
-- Installed PrimeReact, PrimeFlex, PrimeIcons, Anime.js
-- Set up organized component structure (common, layout, home, projectGallery, inputs)
-- Created Header and Footer components with navigation
-- Built Home page with Hero and AboutSection components
-- Built Gallery page with Carousel and ProjectGrid components
-- Implemented ProjectCard with flip animations using anime.js
-- Added subtle animated gear background using anime.js
-- Integrated PrimeReact Skeleton loaders for all images
-- Added SEO optimization with metadata and sitemap.xml
-- Implemented mobile-first responsive design with PrimeFlex and Tailwind
-- Added Prettier config for code style consistency
-- Created user-focused README and comprehensive CHANGELOG
+- Updated to stable dependency versions
+- Improved package.json structure
+- Added proper TypeScript types
 
-### Technical Features
+---
 
-- Lara Light Blue PrimeReact theme for professional appearance
-- Client-side animations with anime.js for card flips and background elements
-- Barrel exports for clean component imports
-- TypeScript interfaces for all component props
-- Proper error handling and loading states
-- Optimized build with no linting errors
+## [1.3.0] - 2024-12-19
 
-## [0.1.0] - Initial Modern Implementation
+### 🎨 UI/UX Enhancements
 
-- Project bootstrapped with Next.js (App Router, TypeScript, Tailwind, import alias @/\*)
-- Installed PrimeReact, PrimeFlex, PrimeIcons, Anime.js
-- Set up project structure for components, pages, and layout
-- Added Prettier config for code style consistency
-- Ready for Home and Gallery page development
+- **Dark Theme Implementation**: Complete dark slate/amber theme with glass effects
+- **Animated Crane Hamburger**: Unique crane-themed navigation menu with smooth animations
+- **Construction Background**: Animated background with gears, bolts, and crane elements
+- **Transparency Effects**: 50% transparent glass-effect backgrounds throughout the site
+
+### 🏗️ Component Improvements
+
+- **Hero Section**: Redesigned with gradient text and enhanced visual hierarchy
+- **Gallery Cards**: Updated to use PrimeReact Card components with flip animations
+- **Contact Page**: Enhanced with Google Maps integration and improved layout
+- **Navigation**: Replaced standard hamburger with animated crane design
+
+### 🎭 Animation Features
+
+- **Anime.js Integration**: Smooth animations for background elements and interactions
+- **Crane Animation**: Moving crane with pickup animations
+- **Hover Effects**: Enhanced button and card hover states
+- **Loading States**: Improved skeleton loading for gallery images
+
+### 🔧 Technical Updates
+
+- **PrimeReact Integration**: Enhanced component library usage
+- **TypeScript**: Improved type safety and component interfaces
+- **Responsive Design**: Better mobile-first approach
+- **Performance**: Optimized animations and component rendering
+
+---
+
+## [1.2.0] - 2024-12-19
+
+### 🎨 Design System
+
+- **PrimeReact Integration**: Added PrimeReact components and theming
+- **Tailwind CSS**: Implemented utility-first styling approach
+- **Color Palette**: Professional construction-themed color scheme
+- **Typography**: Improved font hierarchy and readability
+
+### 🏗️ Component Architecture
+
+- **Modular Components**: Separated concerns with dedicated component files
+- **TypeScript**: Added proper type definitions and interfaces
+- **Responsive Design**: Mobile-first approach with breakpoint considerations
+- **Accessibility**: Enhanced ARIA labels and keyboard navigation
+
+### 📱 Navigation
+
+- **Hamburger Menu**: Mobile-friendly navigation with smooth animations
+- **Page Routing**: Clean URL structure with Next.js App Router
+- **Breadcrumbs**: Improved navigation context
+
+### 🎭 Interactive Elements
+
+- **Gallery Carousel**: Rotating project showcase with PrimeReact Carousel
+- **Project Cards**: Flip animations and hover effects
+- **Contact Forms**: Enhanced form validation and user feedback
+- **Button States**: Improved hover and focus states
+
+---
+
+## [1.1.0] - 2024-12-19
+
+### 🎨 Visual Enhancements
+
+- **Hero Section**: Enhanced with company logo and mission statement
+- **About Section**: Added company values and service highlights
+- **Gallery**: Implemented project showcase with image carousel
+- **Contact Page**: Professional contact information layout
+
+### 🏗️ Content Structure
+
+- **Page Organization**: Clear separation of Home, Gallery, and Contact pages
+- **Company Information**: Comprehensive business details and contact info
+- **Service Descriptions**: Detailed construction service offerings
+- **Project Portfolio**: Showcase of completed construction projects
+
+### 🔧 Technical Foundation
+
+- **Next.js Setup**: Modern React framework with App Router
+- **TypeScript**: Type-safe development environment
+- **Tailwind CSS**: Utility-first CSS framework
+- **Component Library**: PrimeReact integration for UI components
+
+---
+
+## [1.0.0] - 2024-12-19
+
+### 🚀 Initial Release
+
+- **Project Setup**: Next.js 15.3.5 with TypeScript
+- **Basic Structure**: Home, Gallery, and Contact pages
+- **Company Branding**: Dilbeck & Sons Construction identity
+- **Responsive Design**: Mobile-first approach
+- **Modern Stack**: React 18, TypeScript, Tailwind CSS
 
 ## [1.2.1] - Centered Layout & Visual Balance
 

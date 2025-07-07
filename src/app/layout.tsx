@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
-import { PrimeReactProvider } from 'primereact/api';
 import 'primereact/resources/themes/lara-light-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import '@/styles/globals.css';
-import CraneHamburger from '@/components/common/CraneHamburger';
-import { Footer } from '@/components/layout/Footer';
-import ConstructionBackground from '@/components/common/ConstructionBackground';
+import { AppShell } from '@/components/layout/AppShell';
 
 export const metadata: Metadata = {
   title: 'Dilbeck & Sons Construction',
@@ -52,14 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-construction min-h-screen">
-        <PrimeReactProvider>
-          <ConstructionBackground />
-          <div className="relative z-10 min-h-screen flex flex-col">
-            <CraneHamburger />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </PrimeReactProvider>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

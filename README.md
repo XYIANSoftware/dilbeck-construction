@@ -1,120 +1,193 @@
-
-[dilbeck-logo-1.pdf](https://github.com/user-attachments/files/21107220/dilbeck-logo-1.pdf)
-
 # Dilbeck & Sons Construction
 
-A modern, professional website for Dilbeck & Sons Construction built with Next.js, TypeScript, and PrimeReact.
+A modern, professional website for Dilbeck & Sons Construction - a family-owned general contracting company serving Monterey, CA since 1978.
 
-## 🚀 Features
+## 🏗️ About
 
-- **Modern UI/UX**: Clean, professional design with glass-effect styling
-- **Responsive Design**: Mobile-first approach with consistent hamburger menu across all devices
-- **PrimeReact Integration**: Professional components with lara-light-blue theme
-- **Smooth Animations**: Subtle anime.js animations for enhanced user experience
-- **SEO Optimized**: Proper metadata, sitemap, and semantic HTML
-- **TypeScript**: Full type safety throughout the application
-- **Performance**: Optimized images with skeleton loaders and lazy loading
+Dilbeck & Sons Construction is a trusted name in the Monterey community, delivering quality construction services with integrity and craftsmanship. This website showcases our projects, services, and commitment to excellence.
 
-## 📱 Pages
+## ✨ Features
 
-- **Home**: Hero section with company overview and featured content
-- **Gallery**: Interactive project showcase with flip animations
-- **Contact**: Company information, hours, location, and Google Maps integration
+### 🎨 Modern Design
 
-## 🛠 Tech Stack
+- **Light Blue Professional Theme**: Clean, modern design with professional blue color palette
+- **Glass Morphism Effects**: Beautiful glass-effect backgrounds with transparency and blur
+- **Responsive Design**: Mobile-first approach with seamless desktop experience
+- **Smooth Animations**: Crane animations and interactive elements powered by Anime.js
 
-- **Framework**: Next.js 15.3.5 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS + PrimeFlex
-- **UI Components**: PrimeReact (Card, Button, Sidebar, Skeleton)
-- **Icons**: PrimeIcons
-- **Animations**: Anime.js
-- **Deployment**: Netlify (dilbeck.netlify.app)
+### 📱 User Experience
 
-## 🎨 Design Features
+- **Animated Crane Navigation**: Unique crane-themed hamburger menu with smooth animations
+- **Interactive Contact**: Clickable phone numbers and location routing
+- **Project Gallery**: Showcase of completed construction projects with flip animations
+- **Professional Layout**: Clean, organized content structure across all pages
 
-- **Hamburger Menu**: Consistent navigation using PrimeReact Sidebar
-- **Glass Effect**: Modern backdrop blur styling throughout
-- **Card Animations**: Interactive project cards with flip effects
-- **Professional Theme**: Lara Light Blue PrimeReact theme
-- **Mobile-First**: Responsive design that works on all devices
+### 🏠 Pages
+
+- **Home**: Hero section with office image, mission statement, and services overview
+- **Gallery**: Project portfolio with carousel and grid layout
+- **Contact**: Streamlined contact information and business hours
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 15.3.5 with App Router
+- **Language**: TypeScript for type safety
+- **Styling**: Tailwind CSS for utility-first styling
+- **UI Components**: PrimeReact for professional component library
+- **Animations**: Anime.js for smooth, performant animations
+- **Icons**: PrimeIcons for consistent iconography
+- **Layout**: PrimeFlex for responsive grid system
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd dilbeck-construction
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── contact/           # Contact page
+│   ├── page.tsx           # Home page
 │   ├── gallery/           # Gallery page
-│   └── layout.tsx         # Root layout with PrimeReactProvider
-├── components/            # Reusable components
-│   ├── common/           # Shared components
-│   ├── layout/           # Header, Footer
-│   ├── home/             # Home page components
-│   └── projectGallery/   # Gallery components
-├── constants/            # Centralized data and types
-│   ├── types.ts          # TypeScript interfaces
-│   ├── companyInfo.ts    # Company information
-│   ├── navigation.ts     # Navigation items
-│   └── galleryList.ts    # Gallery data
-└── styles/              # Global styles and utilities
-    └── globals.css       # CSS variables and utilities
+│   ├── contact/           # Contact page
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── common/            # Shared components
+│   │   ├── CraneHamburger.tsx
+│   │   └── ConstructionBackground.tsx
+│   ├── home/              # Home page components
+│   │   ├── Hero.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── ServicesSection.tsx
+│   │   └── HomeContent.tsx
+│   ├── layout/            # Layout components
+│   │   ├── AppShell.tsx
+│   │   └── Footer.tsx
+│   ├── projectGallery/    # Gallery components
+│   │   ├── GalleryCarousel.tsx
+│   │   ├── ProjectGrid.tsx
+│   │   ├── ProjectCard.tsx
+│   │   └── GalleryContent.tsx
+│   └── contact/           # Contact components
+│       └── ContactInfo.tsx
+├── constants/             # Application constants
+│   ├── companyInfo.ts
+│   └── navigation.ts
+└── styles/               # Global styles
+    └── globals.css
 ```
 
-## 🚀 Getting Started
+## 🎨 Design System
 
-1. **Install dependencies**:
+### Color Palette
 
-   ```bash
-   npm install
-   ```
+- **Primary Blue**: `#1e40af` (Blue-800)
+- **Secondary Blue**: `#3b82f6` (Blue-500)
+- **Accent Blue**: `#60a5fa` (Blue-400)
+- **Background**: `#f8fafc` (Slate-50)
+- **Text**: `#1e3a8a` (Blue-900)
 
-2. **Run development server**:
+### Typography
 
-   ```bash
-   npm run dev
-   ```
+- **Font Family**: Inter (system font stack)
+- **Headings**: Bold weights with blue color scheme
+- **Body Text**: Regular weight with proper contrast
 
-3. **Build for production**:
+### Components
 
-   ```bash
-   npm run build
-   ```
+- **Glass Effect**: Semi-transparent backgrounds with blur
+- **Cards**: Rounded corners with subtle shadows
+- **Buttons**: Gradient backgrounds with hover effects
+- **Navigation**: Animated crane hamburger menu
 
-4. **Export static files** (for Netlify):
-   ```bash
-   npm run export
-   ```
+## 🔧 Development
 
-## 🌐 Deployment
+### Available Scripts
 
-The site is configured for deployment on Netlify at [dilbeck.netlify.app](https://dilbeck.netlify.app).
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-- Static export configuration in `next.config.ts`
-- Netlify configuration in `netlify.toml`
-- Proper redirects and headers for production
+### Code Style
 
-## 📝 Version History
+- **TypeScript**: Strict mode enabled
+- **ESLint**: Next.js recommended configuration
+- **Prettier**: Consistent code formatting
+- **Components**: Functional components with TypeScript interfaces
 
-See [CHANGELOG.md](./CHANGELOG.md) for detailed version history and updates.
+## 📱 Responsive Design
 
-**Current Version**: 1.2.0 - Major UI improvements with hamburger menu, PrimeReact components, and Contact page
+The website is built with a mobile-first approach:
 
-## 🎯 Key Improvements in v1.2.0
+- **Mobile**: Optimized for touch interactions
+- **Tablet**: Enhanced layout for medium screens
+- **Desktop**: Full-featured experience with hover effects
 
-- **Hamburger Menu**: Consistent navigation experience across desktop and mobile
-- **PrimeReact Components**: Enhanced theming with Card, Button, and Sidebar components
-- **Contact Page**: New page with company information and Google Maps integration
-- **Professional Styling**: Improved visual consistency and user experience
-- **Better Accessibility**: Proper ARIA labels and semantic HTML structure
+## 🎭 Animations
+
+### Anime.js Integration
+
+- **Background Elements**: Rotating gears, floating bolts, crane lines
+- **Crane Animation**: Moving crane with dirt pickup animation
+- **Interactive Elements**: Smooth hover transitions and button effects
+- **Page Transitions**: Subtle loading and state changes
+
+### Performance
+
+- **Optimized Animations**: 60fps smooth animations
+- **Reduced Motion**: Respects user preferences
+- **Lazy Loading**: Images and components load efficiently
 
 ## 📞 Contact Information
 
-- **Phone**: (555) 123-4567
-- **Address**: 123 Construction Ave, Building City, BC 12345
-- **Hours**: Monday-Friday 7:00 AM - 5:00 PM, Saturday 8:00 AM - 2:00 PM
-- **Website**: [dilbeck.netlify.app](https://dilbeck.netlify.app)
+- **Phone**: +1 (831) 422-8213
+- **Address**: Monterey, CA
+- **Business Hours**: Monday - Friday, 8:00 AM - 5:00 PM
+
+## 🤝 Contributing
+
+This is a private project for Dilbeck & Sons Construction. For questions or support, please contact the development team.
+
+## 📄 License
+
+This project is proprietary and confidential. All rights reserved by Dilbeck & Sons Construction.
 
 ---
 
-Built with ❤️ using modern web technologies for a professional construction company website.
+**Built with ❤️ for Dilbeck & Sons Construction**

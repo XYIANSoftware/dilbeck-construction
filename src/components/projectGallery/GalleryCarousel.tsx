@@ -27,7 +27,7 @@ function GalleryItem({ image }: { image: CarouselImage }) {
           className={`object-cover rounded-xl shadow-md transition-opacity duration-500 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
-          onLoadingComplete={() => setLoaded(true)}
+          onLoad={() => setLoaded(true)}
         />
       </div>
       <span className="mt-2 text-blue-900 font-semibold">{image.title}</span>

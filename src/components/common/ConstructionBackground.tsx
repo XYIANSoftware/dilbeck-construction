@@ -7,7 +7,6 @@ const ConstructionBackground = () => {
     const initAnimations = async () => {
       try {
         const animeModule = await import('animejs');
-        // @ts-expect-error: animejs types do not match runtime usage
         const anime = animeModule.default || animeModule;
 
         // Rotating gears

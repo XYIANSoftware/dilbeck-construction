@@ -2,7 +2,6 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Skeleton } from 'primereact/skeleton';
-import * as anime from 'animejs';
 import { GalleryItem } from '@/constants';
 
 /**
@@ -13,25 +12,33 @@ export function ProjectCard({ imgSrc, projectName, details, alt }: GalleryItem) 
   const cardRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
-  const handleFlip = () => {
-    if (!flipped) {
+  const handleFlip = async () => {
+    try {
+      const animeModule = await import('animejs');
       // @ts-expect-error: animejs types do not match runtime usage
-      anime({
-        targets: cardRef.current,
-        rotateY: '180deg',
-        duration: 700,
-        easing: 'easeInOutCubic',
-      });
-    } else {
-      // @ts-expect-error: animejs types do not match runtime usage
-      anime({
-        targets: cardRef.current,
-        rotateY: '0deg',
-        duration: 700,
-        easing: 'easeInOutCubic',
-      });
+      const anime = animeModule.default || animeModule;
+
+      if (!flipped) {
+        anime({
+          targets: cardRef.current,
+          rotateY: '180deg',
+          duration: 700,
+          easing: 'easeInOutCubic',
+        });
+      } else {
+        anime({
+          targets: cardRef.current,
+          rotateY: '0deg',
+          duration: 700,
+          easing: 'easeInOutCubic',
+        });
+      }
+      setFlipped(!flipped);
+    } catch (error) {
+      console.warn('Anime.js failed to load:', error);
+      // Fallback to CSS transition if anime.js fails
+      setFlipped(!flipped);
     }
-    setFlipped(!flipped);
   };
 
   return (

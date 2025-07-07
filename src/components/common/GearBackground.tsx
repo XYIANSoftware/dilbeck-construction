@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import * as anime from 'animejs';
 import Image from 'next/image';
 
 /**
@@ -8,19 +7,30 @@ import Image from 'next/image';
  */
 export function GearBackground() {
   useEffect(() => {
-    // @ts-expect-error: animejs types do not match runtime usage
-    anime({
-      targets: '.gear-icon',
-      rotate: 360,
-      easing: 'linear',
-      duration: 10000,
-      loop: true,
-    });
+    // Dynamic import to avoid Turbopack issues
+    const animateGear = async () => {
+      try {
+        const animeModule = await import('animejs');
+        // @ts-expect-error: animejs types do not match runtime usage
+        const anime = animeModule.default || animeModule;
+        anime({
+          targets: '.gear-icon',
+          rotate: 360,
+          easing: 'linear',
+          duration: 10000,
+          loop: true,
+        });
+      } catch (error) {
+        console.warn('Anime.js failed to load:', error);
+      }
+    };
+
+    animateGear();
   }, []);
 
   return (
     <div className="gear-icon fixed bottom-4 right-4 z-40 opacity-30 pointer-events-none select-none">
-      <Image src="/gear.svg" alt="Gear" width={56} height={56} />
+      <Image src="/icon-1.png" alt="Gear" width={56} height={56} className="rounded-full" />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 Welcome to the official website for Dilbeck & Sons Construction!
 
-**Version:** 1.1.1
+**Version:** 1.1.2
 
 **Live Site:** [https://dilbeck.netlify.app](https://dilbeck.netlify.app)
 

@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.2] - Turbopack & Anime.js Import Fixes
+
+### Fixed
+
+- Fixed Turbopack import error with anime.js in development mode
+- Updated anime.js imports to use dynamic imports for better compatibility
+- Added error handling and fallbacks for anime.js loading failures
+- Fixed gear icon reference to use existing icon-1.png file
+- Added graceful degradation when animations fail to load
+
+### Technical Improvements
+
+- Improved development experience with Turbopack compatibility
+- Enhanced error handling for third-party library imports
+- Added fallback CSS transitions when JavaScript animations fail
+- Better type safety with proper error handling
+
 ## [1.1.1] - Netlify Deployment Configuration
 
 ### Added

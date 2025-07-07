@@ -3,17 +3,12 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Skeleton } from 'primereact/skeleton';
 import * as anime from 'animejs';
-
-interface ProjectCardProps {
-  image: string;
-  title: string;
-  description: string;
-}
+import { GalleryItem } from '@/constants';
 
 /**
  * ProjectCard with flip/overlay animation using anime.js
  */
-export function ProjectCard({ image, title, description }: ProjectCardProps) {
+export function ProjectCard({ imgSrc, projectName, details, alt }: GalleryItem) {
   const [flipped, setFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -50,8 +45,8 @@ export function ProjectCard({ image, title, description }: ProjectCardProps) {
         <div className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg bg-white">
           {!loaded && <Skeleton width="100%" height="100%" className="rounded-xl" />}
           <Image
-            src={image}
-            alt={title}
+            src={imgSrc}
+            alt={alt}
             fill
             className={`object-cover w-full h-full transition-opacity duration-500 ${
               loaded ? 'opacity-100' : 'opacity-0'
@@ -59,7 +54,7 @@ export function ProjectCard({ image, title, description }: ProjectCardProps) {
             onLoadingComplete={() => setLoaded(true)}
           />
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-blue-900/80 to-transparent p-3">
-            <span className="text-white font-bold text-lg">{title}</span>
+            <span className="text-white font-bold text-lg">{projectName}</span>
           </div>
         </div>
         {/* Back */}
@@ -67,7 +62,7 @@ export function ProjectCard({ image, title, description }: ProjectCardProps) {
           className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg bg-blue-900 text-white flex items-center justify-center p-4"
           style={{ transform: 'rotateY(180deg)' }}
         >
-          <p className="text-base">{description}</p>
+          <p className="text-base">{details}</p>
         </div>
       </div>
     </div>

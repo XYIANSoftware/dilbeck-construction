@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.7] - 2024-12-19
+
+### Fixed
+
+- **Anime.js Import Issues**: Resolved persistent module import errors by replacing anime.js with CSS animations
+- **Build Errors**: Eliminated all module resolution errors that were preventing successful builds
+- **Animation Reliability**: Implemented CSS keyframe animations for consistent, reliable crane hook swinging
+
+### Changed
+
+- **Animation Implementation**: Replaced anime.js with pure CSS animations using @keyframes swing
+- **Crane Hook Animation**: Smooth swinging animation (2.2s duration) with proper transform origin
+- **Code Simplification**: Removed complex anime.js setup and dependencies for better reliability
+
+### Technical
+
+- **CSS Animations**: Added custom @keyframes swing animation with ease-in-out timing
+- **Transform Origin**: Properly set transform origin to 32px 2px for realistic swinging motion
+- **Build Stability**: Ensured all imports are resolved and build process is error-free
+
+## [1.7.6] - 2024-12-19
+
+### Fixed
+
+- **Animation Issues**: Simplified anime.js setup by removing complex scope management and using direct function calls
+- **Animation Reliability**: Fixed animation not working by storing functions globally and using simpler animation triggers
+- **Size Adjustment**: Reduced crane icon size from 20x16 to 14x11 for better proportions
+- **Padding Optimization**: Reduced button padding from p-4 to p-3 for more appropriate sizing
+
+### Improved
+
+- **Animation Performance**: More reliable animation system with proper cleanup
+- **Visual Balance**: Better proportioned crane icon that fits well in the header
+- **Code Simplicity**: Cleaner animation implementation without complex scoping
+
+## [1.7.5] - 2024-12-19
+
+### Changed
+
+- **Crane Redesign**: Completely redesigned the crane to look like a realistic construction crane
+- **Crane Structure**: Added proper crane elements - base platform, vertical tower, horizontal boom, hook with cable, and support struts
+- **Button Styling**: Added blue border around hamburger menu button with hover effects for better visibility
+- **Animation Enhancement**: Improved animations with more realistic crane movements (arm lift, hook swing, tower extension)
+
+### Improved
+
+- **Visual Clarity**: Crane now clearly resembles a construction crane instead of abstract shapes
+- **Button Visibility**: Blue border and hover effects make it obvious the crane is a clickable button
+- **Animation Timing**: Longer, more dramatic animations (1000ms) for better visual impact
+- **Crane Details**: Added support struts and cable to make the crane more recognizable
+
+## [1.7.4] - 2024-12-19
+
+### Fixed
+
+- **Crane Hamburger Menu Visibility**: Made the crane icon significantly larger and more visible (16x12 instead of 12x8)
+- **Crane Icon Styling**: Increased line thickness, padding, and shadow effects for better visibility
+- **Animation Enhancement**: Improved animation distances and scaling for more dramatic effect
+
+### Changed
+
+- **Navigation Icons**: Completely removed PrimeReact icons from sidebar navigation buttons
+- **Clean Menu Design**: Navigation buttons now show only text labels without any symbols or icons
+- **Better Visual Hierarchy**: Cleaner, more professional appearance without distracting icons
+
 ## [1.7.3] - 2024-12-19
 
 ### Changed

@@ -4,43 +4,26 @@
 
 # Dilbeck & Sons Construction
 
-A modern, professional website for Dilbeck & Sons Construction - a family-owned general contracting company serving Monterey, CA since 1978.
+A professional, modern website for Dilbeck & Sons Construction built with Next.js, TypeScript, and PrimeReact.
 
-## 🏗️ About
+## 🏗️ Features
 
-Dilbeck & Sons Construction is a trusted name in the Monterey community, delivering quality construction services with integrity and craftsmanship. This website showcases our projects, services, and commitment to excellence.
+- **Modern Design**: Clean, professional construction company website
+- **Responsive Layout**: Mobile-first design that works on all devices
+- **Interactive Elements**: Animated crane hamburger menu with smooth CSS animations
+- **PrimeReact Integration**: Professional UI components with consistent theming
+- **Multi-page Structure**: Home, Gallery, and Contact pages with proper navigation
+- **Gallery Showcase**: Organized project sections with detailed modal views
+- **Contact Integration**: Phone and location links with Google Maps embed
 
-## ✨ Features
-
-### 🎨 Modern Design
-
-- **Light Blue Professional Theme**: Clean, modern design with professional blue color palette
-- **Glass Morphism Effects**: Beautiful glass-effect backgrounds with transparency and blur
-- **Responsive Design**: Mobile-first approach with seamless desktop experience
-- **Smooth Animations**: Crane animations and interactive elements powered by Anime.js
-
-### 📱 User Experience
-
-- **Animated Crane Navigation**: Unique crane-themed hamburger menu with smooth animations
-- **Interactive Contact**: Clickable phone numbers and location routing
-- **Project Gallery**: Showcase of completed construction projects with flip animations
-- **Professional Layout**: Clean, organized content structure across all pages
-
-### 🏠 Pages
-
-- **Home**: Hero section with office image, mission statement, and services overview
-- **Gallery**: Project portfolio with carousel and grid layout
-- **Contact**: Streamlined contact information and business hours
-
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 - **Framework**: Next.js 15.3.5 with App Router
-- **Language**: TypeScript for type safety
-- **Styling**: Tailwind CSS for utility-first styling
-- **UI Components**: PrimeReact for professional component library
-- **Animations**: Anime.js for smooth, performant animations
-- **Icons**: PrimeIcons for consistent iconography
-- **Layout**: PrimeFlex for responsive grid system
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with custom animations
+- **UI Components**: PrimeReact with PrimeFlex and PrimeIcons
+- **Animations**: CSS keyframe animations for smooth, reliable performance
+- **Build Tool**: Next.js with optimized production builds
 
 ## 🚀 Getting Started
 
@@ -51,147 +34,142 @@ Dilbeck & Sons Construction is a trusted name in the Monterey community, deliver
 
 ### Installation
 
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd dilbeck-construction
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### Build for Production
+1. Clone the repository:
 
 ```bash
-npm run build
-npm start
+git clone <repository-url>
+cd dilbeck-construction
 ```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── page.tsx           # Home page
-│   ├── gallery/           # Gallery page
 │   ├── contact/           # Contact page
-│   └── layout.tsx         # Root layout
+│   ├── gallery/           # Gallery page
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
 ├── components/            # React components
 │   ├── common/            # Shared components
-│   │   ├── CraneHamburger.tsx
-│   │   └── ConstructionBackground.tsx
+│   │   └── CraneHamburger.tsx  # Animated hamburger menu
+│   ├── gallery/           # Gallery-specific components
+│   │   ├── GalleryContent.tsx
+│   │   └── GalleryProjectDisplay.tsx
 │   ├── home/              # Home page components
-│   │   ├── Hero.tsx
 │   │   ├── AboutSection.tsx
-│   │   ├── ServicesSection.tsx
-│   │   └── HomeContent.tsx
-│   ├── layout/            # Layout components
-│   │   ├── AppShell.tsx
-│   │   └── Footer.tsx
-│   ├── projectGallery/    # Gallery components
-│   │   ├── GalleryCarousel.tsx
-│   │   ├── ProjectGrid.tsx
-│   │   ├── ProjectCard.tsx
-│   │   └── GalleryContent.tsx
-│   └── contact/           # Contact components
-│       └── ContactInfo.tsx
+│   │   └── Hero.tsx
+│   └── layout/            # Layout components
+│       └── AppShell.tsx
 ├── constants/             # Application constants
 │   ├── companyInfo.ts
+│   ├── gallery.ts
 │   └── navigation.ts
-└── styles/               # Global styles
-    └── globals.css
+└── types/                 # TypeScript type definitions
+    └── index.ts
 ```
 
-## 🎨 Design System
+## 🎨 Key Components
 
-### Color Palette
+### CraneHamburger
 
-- **Primary Blue**: `#1e40af` (Blue-800)
-- **Secondary Blue**: `#3b82f6` (Blue-500)
-- **Accent Blue**: `#60a5fa` (Blue-400)
-- **Background**: `#f8fafc` (Slate-50)
-- **Text**: `#1e3a8a` (Blue-900)
+- Animated SVG crane hook that swings smoothly
+- CSS keyframe animations for reliable performance
+- Responsive hamburger menu with PrimeReact Sidebar
+- Contact information integration
 
-### Typography
+### GalleryProjectDisplay
 
-- **Font Family**: Inter (system font stack)
-- **Headings**: Bold weights with blue color scheme
-- **Body Text**: Regular weight with proper contrast
+- Organized project sections (Residential, Commercial, Renovation)
+- PrimeReact Card components with modal details
+- Responsive grid layout with proper centering
+- Call-to-action buttons for project inquiries
 
-### Components
+### Hero Section
 
-- **Glass Effect**: Semi-transparent backgrounds with blur
-- **Cards**: Rounded corners with subtle shadows
-- **Buttons**: Gradient backgrounds with hover effects
-- **Navigation**: Animated crane hamburger menu
+- Animated background with construction elements
+- Professional company introduction
+- Mobile-first responsive design
 
-## 🔧 Development
+## 🎯 Features
 
-### Available Scripts
+### Navigation
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
+- **Animated Crane Menu**: Unique hamburger menu with swinging crane hook animation
+- **Smooth Transitions**: CSS animations for all interactive elements
+- **Responsive Design**: Works perfectly on mobile, tablet, and desktop
 
-### Code Style
+### Gallery
 
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Next.js recommended configuration
-- **Prettier**: Consistent code formatting
-- **Components**: Functional components with TypeScript interfaces
+- **Project Categories**: Organized by project type
+- **Modal Details**: Comprehensive project information
+- **Professional Cards**: PrimeReact Card components with hover effects
+- **Contact Integration**: Direct links to contact page
 
-## 📱 Responsive Design
+### Contact
 
-The website is built with a mobile-first approach:
+- **Company Information**: Complete business details
+- **Interactive Elements**: Clickable phone and location links
+- **Google Maps**: Embedded map for easy location finding
 
-- **Mobile**: Optimized for touch interactions
-- **Tablet**: Enhanced layout for medium screens
-- **Desktop**: Full-featured experience with hover effects
+## 🚀 Deployment
 
-## 🎭 Animations
+The project is optimized for production deployment:
 
-### Anime.js Integration
+```bash
+npm run build
+npm start
+```
 
-- **Background Elements**: Rotating gears, floating bolts, crane lines
-- **Crane Animation**: Moving crane with dirt pickup animation
-- **Interactive Elements**: Smooth hover transitions and button effects
-- **Page Transitions**: Subtle loading and state changes
+## 📝 Recent Updates
 
-### Performance
+### Version 1.7.7
 
-- **Optimized Animations**: 60fps smooth animations
-- **Reduced Motion**: Respects user preferences
-- **Lazy Loading**: Images and components load efficiently
+- **Fixed**: Anime.js import issues by replacing with CSS animations
+- **Improved**: Build stability and reliability
+- **Enhanced**: Crane hook animation with proper CSS keyframes
 
-## 📞 Contact Information
+### Version 1.7.6
 
-- **Phone**: +1 (831) 422-8213
-- **Address**: Monterey, CA
-- **Business Hours**: Monday - Friday, 8:00 AM - 5:00 PM
+- **Fixed**: Animation reliability and performance
+- **Improved**: Visual balance and component sizing
+- **Enhanced**: Code simplicity and maintainability
 
 ## 🤝 Contributing
 
-This is a private project for Dilbeck & Sons Construction. For questions or support, please contact the development team.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and build checks
+5. Submit a pull request
 
 ## 📄 License
 
-This project is proprietary and confidential. All rights reserved by Dilbeck & Sons Construction.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+**Dilbeck & Sons Construction**
+
+- Phone: +1 (831) 422-8213
+- Address: [Company Address]
+- Website: [Website URL]
 
 ---
 
-**Built with ❤️ for Dilbeck & Sons Construction**
+Built with ❤️ using Next.js, TypeScript, and PrimeReact

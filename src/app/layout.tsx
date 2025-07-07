@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/D_logo.ico',
-    apple: '/D_logo.ico',
+    shortcut: '/D_logo.ico',
   },
   manifest: '/site.webmanifest',
 };

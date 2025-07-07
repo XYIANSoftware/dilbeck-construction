@@ -8,88 +8,16 @@ import { Button } from 'primereact/button';
 import { navigationItems } from '@/constants/navigation';
 import { companyInfo } from '@/constants/companyInfo';
 
+const LOGO_SIZE = 56; // px
+const ICON_SIZE = 44; // px (slightly smaller than logo)
+
 const CraneHamburger = () => {
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const root = useRef<HTMLDivElement>(null);
-  const scope = useRef<any>(null);
-
-  useEffect(() => {
-    const initAnimations = async () => {
-      try {
-        const { createScope, animate } = await import('animejs');
-
-        // Create a scope for all animations in this component
-        scope.current = createScope({ root }).add((self: any) => {
-          // Register animation methods to be used outside the scope
-          self.add('openMenu', () => {
-            // Animate the crane arm to lift up
-            animate('.crane-arm', {
-              rotate: -45,
-              translateY: -4,
-              ease: 'easeInOut(2)',
-              duration: 800,
-            });
-
-            // Animate the hook to swing down
-            animate('.crane-hook', {
-              rotate: 45,
-              translateY: 4,
-              ease: 'easeInOut(2)',
-              duration: 800,
-            });
-
-            // Animate the base to extend
-            animate('.crane-base', {
-              scaleX: 1.2,
-              ease: 'easeInOut(2)',
-              duration: 600,
-            });
-          });
-
-          self.add('closeMenu', () => {
-            // Reset all crane parts to original position
-            animate(['.crane-arm', '.crane-hook'], {
-              rotate: 0,
-              translateY: 0,
-              ease: 'easeInOut(2)',
-              duration: 600,
-            });
-
-            animate('.crane-base', {
-              scaleX: 1,
-              ease: 'easeInOut(2)',
-              duration: 400,
-            });
-          });
-        });
-
-        // Properly cleanup all anime.js instances when component unmounts
-        return () => {
-          if (scope.current) {
-            scope.current.revert();
-          }
-        };
-      } catch (error) {
-        console.warn('Anime.js failed to load:', error);
-      }
-    };
-
-    initAnimations();
-  }, []);
 
   const handleMenuToggle = () => {
-    const newVisible = !visible;
-    setVisible(newVisible);
-
-    // Trigger the appropriate animation
-    if (scope.current?.methods) {
-      if (newVisible) {
-        scope.current.methods.openMenu();
-      } else {
-        scope.current.methods.closeMenu();
-      }
-    }
+    setVisible(v => !v);
   };
 
   const handlePhoneClick = () => {
@@ -107,41 +35,46 @@ const CraneHamburger = () => {
           <Image
             src="/D_logo.png"
             alt={`${companyInfo.name} Logo`}
-            width={70}
-            height={70}
+            width={LOGO_SIZE}
+            height={LOGO_SIZE}
             className="object-contain"
+            priority
           />
         </div>
         <div
-          className="cursor-pointer p-3 hover:bg-blue-100 rounded-lg transition-colors"
+          className="cursor-pointer p-2 hover:bg-blue-100 rounded-xl transition-all duration-300 border-2 border-blue-300 hover:border-blue-500 hover:shadow-lg flex items-center justify-center"
+          style={{ width: ICON_SIZE + 16, height: ICON_SIZE + 16 }}
           onClick={handleMenuToggle}
           aria-label="Menu"
         >
-          {/* Crane Design */}
-          <div className="relative w-12 h-8">
-            {/* Crane Base */}
-            <div className="crane-base absolute bottom-0 w-full h-1 bg-blue-700 rounded-full shadow-md" />
-
-            {/* Crane Arm */}
-            <div className="crane-arm absolute top-2 left-0 w-10 h-1.5 bg-blue-700 rounded-full shadow-md transform origin-left" />
-
-            {/* Crane Hook */}
-            <div className="crane-hook absolute top-4 right-0 w-6 h-1 bg-blue-700 rounded-full shadow-md transform origin-right" />
-
-            {/* Crane Tower */}
-            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-6 bg-blue-700 rounded-full shadow-md" />
-          </div>
+          {/* SVG Crane Hook Icon, animated with CSS */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="crane-hook animate-swing"
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+            fill="none"
+            viewBox="0 0 64 64"
+            stroke="currentColor"
+            strokeWidth="2"
+            style={{
+              animation: 'swing 2.2s ease-in-out infinite',
+              transformOrigin: '32px 2px',
+            }}
+          >
+            {/* Cable */}
+            <path d="M32 2 v20" stroke="#2563eb" strokeWidth="3" />
+            {/* Pulley */}
+            <circle cx="32" cy="30" r="8" fill="#facc15" stroke="#2563eb" strokeWidth="3" />
+            {/* Hook */}
+            <path d="M32 38 q0 8 6 8 q-6 0 -6 8" stroke="#2563eb" strokeWidth="3" fill="none" />
+          </svg>
         </div>
       </header>
 
       <Sidebar
         visible={visible}
-        onHide={() => {
-          setVisible(false);
-          if (scope.current?.methods) {
-            scope.current.methods.closeMenu();
-          }
-        }}
+        onHide={() => setVisible(false)}
         position="right"
         className="w-80"
         showCloseIcon={true}
@@ -155,23 +88,9 @@ const CraneHamburger = () => {
       >
         <div className="flex flex-col h-full">
           {/* Header Section */}
-          <div className="flex-shrink-0 p-6 border-b border-blue-200">
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <Image
-                  src="/D_logo.png"
-                  alt={`${companyInfo.name} Logo`}
-                  width={60}
-                  height={60}
-                  className="object-contain drop-shadow-lg"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent rounded-full blur-xl"></div>
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-blue-900">{companyInfo.name}</h2>
-                <p className="text-sm text-blue-600">Professional Construction</p>
-              </div>
-            </div>
+          <div className="flex-shrink-0 p-6 border-b border-blue-200 text-center">
+            <h2 className="text-2xl font-bold text-blue-900 mb-1">{companyInfo.name}</h2>
+            <p className="text-base text-blue-600">General Contractors</p>
           </div>
 
           {/* Main Navigation Section */}
@@ -181,14 +100,10 @@ const CraneHamburger = () => {
                 <Button
                   key={item.href}
                   label={item.label}
-                  icon={item.icon}
-                  className="w-full justify-start p-button-text p-button-lg text-left px-6 py-4 text-lg font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 transition-all duration-300 rounded-xl border border-transparent hover:border-blue-200 shadow-sm hover:shadow-md"
+                  className="w-full justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 transition-all duration-300 rounded-xl border border-transparent hover:border-blue-200 shadow-sm hover:shadow-md"
                   severity="secondary"
                   onClick={() => {
                     setVisible(false);
-                    if (scope.current?.methods) {
-                      scope.current.methods.closeMenu();
-                    }
                     router.push(item.href);
                   }}
                 />
@@ -216,6 +131,21 @@ const CraneHamburger = () => {
           </div>
         </div>
       </Sidebar>
+
+      <style jsx>{`
+        @keyframes swing {
+          0%,
+          100% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(8deg);
+          }
+          75% {
+            transform: rotate(-8deg);
+          }
+        }
+      `}</style>
     </div>
   );
 };

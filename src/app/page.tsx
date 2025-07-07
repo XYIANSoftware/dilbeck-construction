@@ -1,10 +1,12 @@
 import { Hero, AboutSection } from '@/components/home';
+import { ServicesSection } from '@/components/home/ServicesSection';
 
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-8">
       <Hero />
       <AboutSection />
+      <ServicesSection />
     </div>
   );
 }

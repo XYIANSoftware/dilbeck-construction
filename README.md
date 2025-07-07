@@ -2,6 +2,8 @@
 
 Welcome to the official website for Dilbeck & Sons Construction!
 
+**Version:** 1.0.0
+
 ## How to Use This Website
 
 ### Home Page (`/`)
@@ -32,36 +34,71 @@ Welcome to the official website for Dilbeck & Sons Construction!
 
 Enjoy exploring our work and learning more about Dilbeck & Sons Construction!
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Development
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project built with modern web technologies.
 
-First, run the development server:
+### Tech Stack
+
+- **Framework:** Next.js 15.3.5 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + PrimeFlex
+- **UI Components:** PrimeReact (Lara Light Blue theme)
+- **Animations:** Anime.js
+- **Icons:** PrimeIcons
+
+### Getting Started
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Home page
+│   ├── gallery/page.tsx   # Gallery page
+│   └── layout.tsx         # Root layout
+├── components/            # Reusable components
+│   ├── common/           # Shared components (Button, GearBackground)
+│   ├── layout/           # Layout components (Header, Footer)
+│   ├── home/             # Home page components (Hero, AboutSection)
+│   ├── projectGallery/   # Gallery components (Carousel, ProjectGrid, ProjectCard)
+│   └── inputs/           # Form input components (future)
+└── globals.css           # Global styles
+```
+
+### Adding Images
+
+Place your project images in `public/gallery/` and update the image paths in the component data.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js Documentation](https://nextjs.org/docs)
+- [PrimeReact Documentation](https://primereact.org/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Anime.js Documentation](https://animejs.com/)
 
 ## Deploy on Vercel
 

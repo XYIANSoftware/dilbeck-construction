@@ -1,5 +1,6 @@
 import './globals.css';
 import { Header, Footer } from '@/components/layout';
+import { GearBackground } from '@/components/common';
 import type { ReactNode } from 'react';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -9,6 +10,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
+        <GearBackground />
       </body>
     </html>
   );

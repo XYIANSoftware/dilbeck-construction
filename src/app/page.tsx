@@ -8,3 +8,9 @@ export default function HomePage() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Dilbeck & Sons Construction | General Contractors Monterey CA',
+  description:
+    'Dilbeck Construction, Dilbeck & Sons, General Contractors in Monterey, CA. Building with integrity and craftsmanship since 1978.',
+};

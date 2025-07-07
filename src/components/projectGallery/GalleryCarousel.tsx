@@ -1,3 +1,5 @@
+'use client';
+
 import { Carousel } from 'primereact/carousel';
 import { Skeleton } from 'primereact/skeleton';
 import Image from 'next/image';

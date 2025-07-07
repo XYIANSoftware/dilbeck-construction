@@ -75,3 +75,46 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Sidebar active button styles - moved from styled-jsx to global CSS */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+/* Very specific selectors to override PrimeReact styles */
+button.sidebar-active-btn,
+button.sidebar-active-btn.p-button,
+button.sidebar-active-btn.p-component {
+  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: #fff !important;
+  border: 2px solid #3b82f6 !important;
+  box-shadow: 0 0 0 4px #3b82f633, 0 8px 24px 0 #1d4ed833 !important;
+  animation: pulse 1.5s infinite !important;
+  z-index: 2;
+  position: relative;
+}
+
+button.sidebar-active-btn .p-button-label,
+button.sidebar-active-btn.p-button .p-button-label,
+button.sidebar-active-btn.p-component .p-button-label {
+  animation: pulse 1.5s infinite !important;
+  color: #fff !important;
+}
+
+/* Debug styles - make active state very obvious */
+button.ACTIVE-DEBUG,
+button.ACTIVE-DEBUG.p-button,
+button.ACTIVE-DEBUG.p-component {
+  background: red !important;
+  color: white !important;
+  border: 5px solid yellow !important;
+  font-weight: bold !important;
+}

@@ -17,6 +17,15 @@ const CraneHamburger = () => {
   const pathname = usePathname();
   const root = useRef<HTMLDivElement>(null);
 
+  // Debug logging
+  useEffect(() => {
+    console.log('Current pathname:', pathname);
+    navigationItems.forEach(item => {
+      const isActive = isActivePage(item.href);
+      console.log(`Page ${item.label} (${item.href}): ${isActive ? 'ACTIVE' : 'inactive'}`);
+    });
+  }, [pathname]);
+
   const handleMenuToggle = () => {
     setVisible(v => !v);
   };
@@ -112,14 +121,16 @@ const CraneHamburger = () => {
             <nav className="flex flex-col gap-3">
               {navigationItems.map((item, idx) => {
                 const isActive = isActivePage(item.href);
+                console.log(`Rendering ${item.label}: isActive = ${isActive}, href = ${item.href}`);
                 return (
                   <Button
                     key={item.href}
                     label={item.label}
-                    data-active={isActive ? 'true' : undefined}
+                    data-active={isActive ? 'true' : 'false'}
                     data-index={idx}
+                    data-href={item.href}
                     className={`sidebar-btn w-full h-14 justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium transition-all duration-300 rounded-xl border shadow-sm hover:shadow-md ${
-                      isActive ? `sidebar-active-btn sidebar-active-btn-${idx}` : ''
+                      isActive ? `sidebar-active-btn sidebar-active-btn-${idx} ACTIVE-DEBUG` : ''
                     }`}
                     severity={isActive ? 'info' : 'secondary'}
                     onClick={() => {
@@ -165,34 +176,6 @@ const CraneHamburger = () => {
           75% {
             transform: rotate(-8deg);
           }
-        }
-
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.8;
-            transform: scale(1.04);
-          }
-        }
-
-        .sidebar-active-btn {
-          background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%) !important;
-          color: #fff !important;
-          border: 2px solid #3b82f6 !important;
-          box-shadow: 0 0 0 4px #3b82f633, 0 8px 24px 0 #1d4ed833 !important;
-          animation: pulse 1.5s infinite !important;
-          z-index: 2;
-          position: relative;
-        }
-        .sidebar-active-btn .p-button-label {
-          animation: pulse 1.5s infinite !important;
-        }
-        .sidebar-btn {
-          background: none;
         }
       `}</style>
     </div>

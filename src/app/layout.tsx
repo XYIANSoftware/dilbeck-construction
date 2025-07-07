@@ -7,6 +7,7 @@ import '@/styles/globals.css';
 import { AppShell } from '@/components/layout/AppShell';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dilbeck.netlify.app'),
   title: 'Dilbeck & Sons Construction',
   description:
     'Professional construction services with quality craftsmanship and reliable project delivery.',

@@ -6,82 +6,74 @@ const ConstructionBackground = () => {
   useEffect(() => {
     const initAnimations = async () => {
       try {
-        const animeModule = await import('animejs');
-        const anime = animeModule.default || animeModule;
+        const { animate, stagger } = await import('animejs');
 
         // Rotating gears
-        anime({
-          targets: '.gear',
+        animate('.gear', {
           rotate: 360,
-          easing: 'linear',
+          ease: 'linear',
           duration: 15000,
           loop: true,
         });
 
         // Floating bolts
-        anime({
-          targets: '.bolt',
+        animate('.bolt', {
           translateY: [-5, 5],
           direction: 'alternate',
-          easing: 'easeInOutSine',
+          ease: 'easeInOut(2)',
           duration: 2000,
-          delay: anime.stagger(300),
+          delay: stagger(300),
           loop: true,
         });
 
         // Bobbing crane lines
-        anime({
-          targets: '.crane-line',
+        animate('.crane-line', {
           translateY: [0, 10],
           direction: 'alternate',
-          easing: 'easeInOutSine',
+          ease: 'easeInOut(2)',
           duration: 3000,
-          delay: anime.stagger(400),
+          delay: stagger(400),
           loop: true,
         });
 
         // Floating construction elements
-        anime({
-          targets: '.construction-element',
+        animate('.construction-element', {
           translateY: [-3, 3],
           rotate: [-2, 2],
           direction: 'alternate',
-          easing: 'easeInOutSine',
+          ease: 'easeInOut(2)',
           duration: 4000,
-          delay: anime.stagger(500),
+          delay: stagger(500),
           loop: true,
         });
 
         // Main crane animation - moving back and forth
-        anime({
-          targets: '.main-crane',
+        animate('.main-crane', {
           translateX: [-30, 30],
-          easing: 'easeInOutQuad',
+          ease: 'easeInOut(2)',
           duration: 4000,
           loop: true,
           direction: 'alternate',
         });
 
         // Crane pickup animation
-        anime({
-          targets: '.crane-hook',
+        animate('.crane-hook', {
           translateY: [0, -20, 0],
           scale: [1, 1.1, 1],
-          easing: 'easeInOutQuad',
+          ease: 'easeInOut(2)',
           duration: 3000,
           loop: true,
           delay: 1000,
         });
 
         // Dirt particles being picked up
-        anime({
-          targets: '.dirt-particle',
+        animate('.dirt-particle', {
           translateY: [0, -30],
           opacity: [0.8, 0],
-          easing: 'easeOutQuad',
+          ease: 'easeOut(2)',
           duration: 2000,
           loop: true,
-          delay: anime.stagger(200),
+          delay: stagger(200),
         });
       } catch (error) {
         console.warn('Anime.js failed to load:', error);

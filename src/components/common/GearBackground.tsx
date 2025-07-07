@@ -10,12 +10,10 @@ export function GearBackground() {
     // Dynamic import to avoid Turbopack issues
     const animateGear = async () => {
       try {
-        const animeModule = await import('animejs');
-        const anime = animeModule.default || animeModule;
-        anime({
-          targets: '.gear-icon',
+        const { animate } = await import('animejs');
+        animate('.gear-icon', {
           rotate: 360,
-          easing: 'linear',
+          ease: 'linear',
           duration: 10000,
           loop: true,
         });

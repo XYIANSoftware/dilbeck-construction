@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer className="glass-effect mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-blue-900 mb-4">{companyInfo.name}</h3>
@@ -36,18 +36,6 @@ export function Footer() {
                 📍 {companyInfo.address}
               </div>
             </div>
-          </div>
-
-          {/* Services */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-blue-900 mb-4">Our Services</h3>
-            <ul className="space-y-2 text-blue-800">
-              <li>• General Contracting</li>
-              <li>• Commercial Construction</li>
-              <li>• Residential Projects</li>
-              <li>• Renovation & Remodeling</li>
-              <li>• Project Management</li>
-            </ul>
           </div>
 
           {/* Hours */}

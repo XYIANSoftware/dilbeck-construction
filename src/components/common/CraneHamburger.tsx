@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Sidebar } from 'primereact/sidebar';
@@ -11,44 +11,69 @@ import { companyInfo } from '@/constants/companyInfo';
 const CraneHamburger = () => {
   const [visible, setVisible] = useState(false);
   const router = useRouter();
+  const root = useRef<HTMLDivElement>(null);
+  const scope = useRef<any>(null);
 
   useEffect(() => {
     const initAnimations = async () => {
       try {
-        const animeModule = await import('animejs');
-        const anime = animeModule.default || animeModule;
+        const { createScope, animate } = await import('animejs');
 
-        if (visible) {
-          anime({
-            targets: '.crane-line',
-            rotate: 45,
-            translateY: -8,
-            easing: 'easeInOutQuad',
-            duration: 600,
+        // Create a scope for all animations in this component
+        scope.current = createScope({ root }).add((self: any) => {
+          // Register animation methods to be used outside the scope
+          self.add('openMenu', () => {
+            animate('.crane-line', {
+              rotate: 45,
+              translateY: -8,
+              ease: 'easeInOut(2)',
+              duration: 600,
+            });
+            animate('.crane-hook', {
+              rotate: -45,
+              translateY: 8,
+              ease: 'easeInOut(2)',
+              duration: 600,
+            });
           });
-          anime({
-            targets: '.crane-hook',
-            rotate: -45,
-            translateY: 8,
-            easing: 'easeInOutQuad',
-            duration: 600,
+
+          self.add('closeMenu', () => {
+            animate(['.crane-line', '.crane-hook'], {
+              rotate: 0,
+              translateY: 0,
+              ease: 'easeInOut(2)',
+              duration: 600,
+            });
           });
-        } else {
-          anime({
-            targets: ['.crane-line', '.crane-hook'],
-            rotate: 0,
-            translateY: 0,
-            easing: 'easeInOutQuad',
-            duration: 600,
-          });
-        }
+        });
+
+        // Properly cleanup all anime.js instances when component unmounts
+        return () => {
+          if (scope.current) {
+            scope.current.revert();
+          }
+        };
       } catch (error) {
         console.warn('Anime.js failed to load:', error);
       }
     };
 
     initAnimations();
-  }, [visible]);
+  }, []);
+
+  const handleMenuToggle = () => {
+    const newVisible = !visible;
+    setVisible(newVisible);
+
+    // Trigger the appropriate animation
+    if (scope.current?.methods) {
+      if (newVisible) {
+        scope.current.methods.openMenu();
+      } else {
+        scope.current.methods.closeMenu();
+      }
+    }
+  };
 
   const handlePhoneClick = () => {
     window.open('tel:+18314228213');
@@ -59,7 +84,7 @@ const CraneHamburger = () => {
   };
 
   return (
-    <>
+    <div ref={root}>
       <header className="w-full flex items-center justify-between px-4 py-2 glass-effect sticky top-0 z-50">
         <div className="flex items-center">
           <Image
@@ -72,7 +97,7 @@ const CraneHamburger = () => {
         </div>
         <div
           className="cursor-pointer p-3 hover:bg-blue-100 rounded-lg transition-colors"
-          onClick={() => setVisible(!visible)}
+          onClick={handleMenuToggle}
           aria-label="Menu"
         >
           <div className="crane-line w-12 h-1.5 bg-blue-700 mb-2 rounded-full shadow-md" />
@@ -83,7 +108,12 @@ const CraneHamburger = () => {
 
       <Sidebar
         visible={visible}
-        onHide={() => setVisible(false)}
+        onHide={() => {
+          setVisible(false);
+          if (scope.current?.methods) {
+            scope.current.methods.closeMenu();
+          }
+        }}
         position="right"
         className="w-80"
         showCloseIcon={true}
@@ -110,6 +140,9 @@ const CraneHamburger = () => {
                 severity="secondary"
                 onClick={() => {
                   setVisible(false);
+                  if (scope.current?.methods) {
+                    scope.current.methods.closeMenu();
+                  }
                   router.push(item.href);
                 }}
               />
@@ -135,7 +168,7 @@ const CraneHamburger = () => {
           </div>
         </div>
       </Sidebar>
-    </>
+    </div>
   );
 };
 

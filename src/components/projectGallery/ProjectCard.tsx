@@ -28,22 +28,21 @@ export function ProjectCard({
 
   const handleFlip = async () => {
     try {
-      const animeModule = await import('animejs');
-      const anime = animeModule.default || animeModule;
+      const { animate } = await import('animejs');
+
+      if (!cardRef.current) return;
 
       if (!flipped) {
-        anime({
-          targets: cardRef.current,
+        animate(cardRef.current, {
           rotateY: '180deg',
           duration: 700,
-          easing: 'easeInOutCubic',
+          ease: 'easeInOut(2)',
         });
       } else {
-        anime({
-          targets: cardRef.current,
+        animate(cardRef.current, {
           rotateY: '0deg',
           duration: 700,
-          easing: 'easeInOutCubic',
+          ease: 'easeInOut(2)',
         });
       }
       setFlipped(!flipped);

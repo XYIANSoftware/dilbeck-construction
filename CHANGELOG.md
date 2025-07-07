@@ -152,3 +152,14 @@
 - Set up project structure for components, pages, and layout
 - Added Prettier config for code style consistency
 - Ready for Home and Gallery page development
+
+## [1.2.1] - Centered Layout & Visual Balance
+
+### Updated
+
+- Centered and visually balanced all main wrappers (Hero, Gallery, Contact)
+- Hero section: logo, text, and cards are centered and spaced evenly
+- Gallery page: heading, carousel, and grid are centered and aligned
+- Contact page: heading, cards, and map are centered and visually balanced
+- Improved flex/grid usage for consistent modern layout
+- Fixed minor linter errors and improved accessibility

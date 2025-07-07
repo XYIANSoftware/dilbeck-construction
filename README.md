@@ -1,5 +1,5 @@
 
-[dilbeck-logo-1.pdf](https://github.com/user-attachments/files/21107220/dilbeck-logo-1.pdf)
+![D_logo](https://github.com/user-attachments/assets/9ffd05ba-0e3d-49b9-985d-d647f44897f7)
 
 # Dilbeck & Sons Construction
 

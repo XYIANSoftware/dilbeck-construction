@@ -1,19 +1,20 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { navigationItems } from '@/constants/navigation';
 import { companyInfo } from '@/constants/companyInfo';
+import { PageTransition } from './PageTransition';
 
-const LOGO_SIZE = 56; // px
 const ICON_SIZE = 44; // px (slightly smaller than logo)
 
 const CraneHamburger = () => {
   const [visible, setVisible] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const root = useRef<HTMLDivElement>(null);
 
   const handleMenuToggle = () => {
@@ -28,16 +29,26 @@ const CraneHamburger = () => {
     router.push('/contact');
   };
 
+  const isActivePage = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <div ref={root}>
+      <PageTransition />
+
       <header className="w-full flex items-center justify-between px-4 py-2 glass-effect sticky top-0 z-50">
         <div className="flex items-center">
           <Image
             src="/D_logo.png"
             alt={`${companyInfo.name} Logo`}
-            width={LOGO_SIZE}
-            height={LOGO_SIZE}
+            width={115}
+            height={115}
             className="object-contain"
+            style={{ width: '115px', height: 'auto' }}
             priority
           />
         </div>
@@ -96,18 +107,25 @@ const CraneHamburger = () => {
           {/* Main Navigation Section */}
           <div className="flex-1 p-6">
             <nav className="flex flex-col gap-3">
-              {navigationItems.map(item => (
-                <Button
-                  key={item.href}
-                  label={item.label}
-                  className="w-full justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 transition-all duration-300 rounded-xl border border-transparent hover:border-blue-200 shadow-sm hover:shadow-md"
-                  severity="secondary"
-                  onClick={() => {
-                    setVisible(false);
-                    router.push(item.href);
-                  }}
-                />
-              ))}
+              {navigationItems.map(item => {
+                const isActive = isActivePage(item.href);
+                return (
+                  <Button
+                    key={item.href}
+                    label={item.label}
+                    className={`w-full justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium transition-all duration-300 rounded-xl border shadow-sm hover:shadow-md ${
+                      isActive
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-600 shadow-md hover:shadow-lg transform scale-105'
+                        : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 border-transparent hover:border-blue-200'
+                    }`}
+                    severity={isActive ? 'info' : 'secondary'}
+                    onClick={() => {
+                      setVisible(false);
+                      router.push(item.href);
+                    }}
+                  />
+                );
+              })}
             </nav>
           </div>
 

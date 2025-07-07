@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.9] - 2024-12-19
+
+### Added
+
+- **Privacy Policy Page**: Comprehensive privacy policy specific to construction services in Monterey County, California
+- **Terms of Service Page**: Detailed terms of service covering construction contracts, licensing, and California regulations
+- **Legal Page Access**: Privacy and Terms links added to footer as small text links
+- **SEO Protection**: robots.txt configured to prevent crawling of legal pages
+
+### Changed
+
+- **Footer Content**: Removed "Built with modern web technologies" text for cleaner appearance
+- **Footer Links**: Added Privacy Policy and Terms of Service as small, unobtrusive text links
+- **Page Metadata**: Both legal pages include noindex, nofollow meta tags to prevent search engine indexing
+
+### Technical
+
+- **Legal Compliance**: Privacy policy includes CCPA compliance for California residents
+- **Construction Specific**: Terms cover contractor licensing, permits, warranties, and Monterey County regulations
+- **Accessibility**: Legal pages maintain consistent styling with the rest of the site
+- **SEO Management**: robots.txt prevents search engines from indexing legal pages
+
+## [1.7.8] - 2024-12-19
+
+### Improved
+
+- **Gallery Card Layout**: Enhanced card design with better vertical padding and improved content spacing
+- **Button Placement**: Moved "View Details" button inside card content for better visual integration
+- **Card Styling**: Implemented glossy glass effect with 70% transparent background and enhanced elevation
+- **Button Design**: Reduced border radius to 8px for softer, more modern square appearance
+- **Visual Effects**: Added backdrop blur and subtle border for premium glass morphism effect
+
+### Changed
+
+- **Card Background**: Applied rgba(255, 255, 255, 0.7) with backdrop-filter blur for glossy appearance
+- **Shadow Effects**: Enhanced from shadow-lg to shadow-xl with hover:shadow-2xl for better elevation
+- **Content Spacing**: Increased vertical padding and improved spacing between card elements
+- **Button Styling**: Consistent 8px border radius across all buttons in gallery and modal
+
+### Technical
+
+- **CSS Properties**: Added inline styles for background transparency and backdrop blur
+- **Layout Structure**: Restructured card content to properly contain the button within card boundaries
+- **Responsive Design**: Maintained responsive behavior while improving visual hierarchy
+
 ## [1.7.7] - 2024-12-19
 
 ### Fixed

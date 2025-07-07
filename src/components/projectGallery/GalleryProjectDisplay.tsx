@@ -53,19 +53,35 @@ export function GalleryProjectDisplay() {
   };
 
   const ProjectCard = ({ project }: { project: GalleryItem }) => (
-    <Card className="w-full max-w-sm h-96 shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div className="relative w-full h-48 mb-4">
-        <Image src={project.imgSrc} alt={project.alt} fill className="object-cover rounded-lg" />
+    <Card
+      className="w-full max-w-sm h-auto shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
+      style={{
+        background:
+          'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,248,255,0.85) 100%)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(59, 130, 246, 0.15)',
+        boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+      }}
+    >
+      <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
+        <Image
+          src={project.imgSrc}
+          alt={project.alt}
+          fill
+          className="object-cover transition-transform duration-500 hover:scale-105"
+        />
         <div className="absolute top-2 right-2">
           <Tag value={project.category} severity="info" />
         </div>
+        {/* Subtle gloss overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/10 pointer-events-none"></div>
       </div>
 
-      <div className="flex flex-col h-32">
-        <h3 className="text-xl font-bold text-blue-900 mb-2">{project.projectName}</h3>
-        <p className="text-gray-600 text-sm flex-grow line-clamp-3">{project.details}</p>
+      <div className="flex flex-col h-auto py-4">
+        <h3 className="text-xl font-bold text-blue-900 mb-3">{project.projectName}</h3>
+        <p className="text-gray-600 text-sm flex-grow line-clamp-3 mb-4">{project.details}</p>
 
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 text-sm text-gray-500">
             <i className="pi pi-map-marker"></i>
             <span>{project.location}</span>
@@ -77,14 +93,19 @@ export function GalleryProjectDisplay() {
             )}
           </div>
         </div>
-      </div>
 
-      <div className="mt-4">
+        {/* Button moved inside card content */}
         <Button
           label="View Details"
           icon="pi pi-eye"
           className="w-full"
           severity="secondary"
+          style={{
+            borderRadius: '8px',
+            background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+            border: 'none',
+            boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
+          }}
           onClick={() => handleViewDetails(project)}
         />
       </div>
@@ -170,6 +191,12 @@ export function GalleryProjectDisplay() {
                   icon="pi pi-phone"
                   severity="success"
                   size="large"
+                  style={{
+                    borderRadius: '8px',
+                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                    border: 'none',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                  }}
                   onClick={() => {
                     handleCloseModal();
                     window.open('tel:+18314228213');

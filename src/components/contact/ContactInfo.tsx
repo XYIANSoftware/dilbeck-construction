@@ -44,7 +44,7 @@ export function ContactInfo({ ctaOnly = false, heading, description }: ContactIn
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-8">
-      <Card className="card-glass p-8 flex flex-col items-center">
+      <Card className="card-glass p-4 flex flex-col items-center">
         <h2 className="text-xl font-bold text-blue-900 mb-4">Get In Touch</h2>
         <div className="space-y-4 text-center">
           <div>
@@ -68,7 +68,7 @@ export function ContactInfo({ ctaOnly = false, heading, description }: ContactIn
         </div>
       </Card>
 
-      <Card className="card-glass p-8 flex flex-col items-center">
+      <Card className="card-glass p-4 flex flex-col items-center">
         <h2 className="text-xl font-bold text-blue-900 mb-4">Visit Our Office</h2>
         <div className="space-y-4 text-center">
           <div>

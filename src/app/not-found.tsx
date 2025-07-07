@@ -11,10 +11,11 @@ export default function NotFound() {
         <p className="text-blue-700 mb-8 max-w-md">
           The page you&apos;re looking for doesn&apos;t exist. It might have been moved or deleted.
         </p>
-        <Link href="/" passHref legacyBehavior>
-          <a className="btn-primary inline-block px-6 py-3 rounded font-semibold text-white bg-blue-700 hover:bg-blue-800 transition-colors">
-            Go Home
-          </a>
+        <Link
+          href="/"
+          className="btn-primary inline-block px-6 py-3 rounded font-semibold text-white bg-blue-700 hover:bg-blue-800 transition-colors"
+        >
+          Go Home
         </Link>
       </div>
     </div>

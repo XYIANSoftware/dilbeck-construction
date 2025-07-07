@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { companyInfo } from '@/constants/companyInfo';
 
 /**
@@ -53,10 +54,17 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-blue-200 mt-8 pt-6 text-center">
-          <p className="text-blue-700 text-sm">
-            © {new Date().getFullYear()} {companyInfo.name}. All rights reserved. | Built with
-            modern web technologies for a professional online presence.
+          <p className="text-blue-700 text-sm mb-2">
+            © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
           </p>
+          <div className="text-blue-600 text-xs space-x-4">
+            <Link href="/privacy" className="hover:text-blue-800 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-blue-800 transition-colors">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

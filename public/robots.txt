@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Prevent crawling of legal pages
+Disallow: /privacy
+Disallow: /terms
+
+# Sitemap
+Sitemap: https://dilbeck-construction.com/sitemap.xml 

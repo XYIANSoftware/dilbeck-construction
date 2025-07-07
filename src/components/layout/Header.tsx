@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from 'primereact/button';
 import { Sidebar } from 'primereact/sidebar';
@@ -11,6 +11,7 @@ import { navigationItems, companyInfo } from '@/constants';
  */
 export function Header() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -53,14 +54,17 @@ export function Header() {
 
           <nav className="flex flex-col gap-2">
             {navigationItems.map(item => (
-              <Link key={item.href} href={item.href} onClick={() => setSidebarVisible(false)}>
-                <Button
-                  label={item.label}
-                  icon={item.icon}
-                  className="w-full justify-start p-button-text p-button-lg"
-                  severity="secondary"
-                />
-              </Link>
+              <Button
+                key={item.href}
+                label={item.label}
+                icon={item.icon}
+                className="w-full justify-start p-button-text p-button-lg"
+                severity="secondary"
+                onClick={() => {
+                  setSidebarVisible(false);
+                  router.push(item.href);
+                }}
+              />
             ))}
           </nav>
 

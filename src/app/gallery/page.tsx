@@ -1,6 +1,5 @@
 import { GalleryCarousel } from '@/components/projectGallery/GalleryCarousel';
 import { ProjectGrid } from '@/components/projectGallery/ProjectGrid';
-import { companyInfo } from '@/constants';
 
 export default function GalleryPage() {
   return (

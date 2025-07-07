@@ -36,7 +36,7 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-amber-400 mb-4">Business Hours</h3>
             <div className="space-y-2 text-slate-300">
-              {companyInfo.hours.map((hour, index) => (
+              {companyInfo.hoursOfOperation?.map((hour: string, index: number) => (
                 <p key={index} className="text-sm">
                   {hour}
                 </p>

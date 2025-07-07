@@ -33,7 +33,7 @@ body {
 
 /* Glass effect utility */
 .glass-effect {
-  background: var(--glass-bg);
+  background: rgba(30, 41, 59, 0.5); /* 50% opacity */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
@@ -50,7 +50,7 @@ body {
 
 /* Card styles */
 .card-glass {
-  background: rgba(30, 41, 59, 0.9);
+  background: rgba(30, 41, 59, 0.5); /* 50% opacity */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(148, 163, 184, 0.15);
@@ -189,7 +189,7 @@ body {
 }
 
 .p-card {
-  background: var(--glass-bg) !important;
+  background: rgba(30, 41, 59, 0.5) !important; /* 50% opacity */
   border: 1px solid var(--glass-border) !important;
   color: var(--text-primary) !important;
 }

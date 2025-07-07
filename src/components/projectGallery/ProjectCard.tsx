@@ -2,10 +2,12 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Skeleton } from 'primereact/skeleton';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
 import { GalleryItem } from '@/constants';
 
 /**
- * ProjectCard with flip/overlay animation using anime.js
+ * ProjectCard with flip/overlay animation using anime.js and PrimeReact Card
  */
 export function ProjectCard({ imgSrc, projectName, details, alt }: GalleryItem) {
   const [flipped, setFlipped] = useState(false);
@@ -49,28 +51,41 @@ export function ProjectCard({ imgSrc, projectName, details, alt }: GalleryItem) 
         style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
       >
         {/* Front */}
-        <div className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg bg-white">
-          {!loaded && <Skeleton width="100%" height="100%" className="rounded-xl" />}
-          <Image
-            src={imgSrc}
-            alt={alt}
-            fill
-            className={`object-cover w-full h-full transition-opacity duration-500 ${
-              loaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoadingComplete={() => setLoaded(true)}
-          />
-          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-blue-900/80 to-transparent p-3">
-            <span className="text-white font-bold text-lg">{projectName}</span>
+        <Card className="absolute w-full h-full backface-hidden p-0 overflow-hidden">
+          <div className="relative w-full h-full">
+            {!loaded && <Skeleton width="100%" height="100%" className="rounded-xl" />}
+            <Image
+              src={imgSrc}
+              alt={alt}
+              fill
+              className={`object-cover w-full h-full transition-opacity duration-500 ${
+                loaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoadingComplete={() => setLoaded(true)}
+            />
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-blue-900/80 to-transparent p-3">
+              <span className="text-white font-bold text-lg">{projectName}</span>
+            </div>
           </div>
-        </div>
+        </Card>
         {/* Back */}
-        <div
-          className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg bg-blue-900 text-white flex items-center justify-center p-4"
+        <Card
+          className="absolute w-full h-full backface-hidden bg-blue-900 text-white flex items-center justify-center p-4"
           style={{ transform: 'rotateY(180deg)' }}
         >
-          <p className="text-base">{details}</p>
-        </div>
+          <div className="text-center">
+            <p className="text-base mb-4">{details}</p>
+            <Button
+              label="View Details"
+              icon="pi pi-eye"
+              className="p-button-outlined p-button-sm"
+              onClick={e => {
+                e.stopPropagation();
+                // Add any additional action here
+              }}
+            />
+          </div>
+        </Card>
       </div>
     </div>
   );

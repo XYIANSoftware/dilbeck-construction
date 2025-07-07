@@ -1,145 +1,117 @@
-# Dilbeck & Sons Construction Website
+# Dilbeck & Sons Construction
 
-Welcome to the official website for Dilbeck & Sons Construction!
+A modern, professional website for Dilbeck & Sons Construction built with Next.js, TypeScript, and PrimeReact.
 
-**Version:** 1.1.3
+## 🚀 Features
 
-**Live Site:** [https://dilbeck.netlify.app](https://dilbeck.netlify.app)
+- **Modern UI/UX**: Clean, professional design with glass-effect styling
+- **Responsive Design**: Mobile-first approach with consistent hamburger menu across all devices
+- **PrimeReact Integration**: Professional components with lara-light-blue theme
+- **Smooth Animations**: Subtle anime.js animations for enhanced user experience
+- **SEO Optimized**: Proper metadata, sitemap, and semantic HTML
+- **TypeScript**: Full type safety throughout the application
+- **Performance**: Optimized images with skeleton loaders and lazy loading
 
-## How to Use This Website
+## 📱 Pages
 
-### Home Page (`/`)
+- **Home**: Hero section with company overview and featured content
+- **Gallery**: Interactive project showcase with flip animations
+- **Contact**: Company information, hours, location, and Google Maps integration
 
-- See the company logo and name at the top.
-- Read a short mission statement and company history.
-- View a team or office image.
-- Find prominent contact information (phone, address) right on the home page.
+## 🛠 Tech Stack
 
-### Project Gallery (`/gallery`)
+- **Framework**: Next.js 15.3.5 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + PrimeFlex
+- **UI Components**: PrimeReact (Card, Button, Sidebar, Skeleton)
+- **Icons**: PrimeIcons
+- **Animations**: Anime.js
+- **Deployment**: Netlify (dilbeck.netlify.app)
 
-- Browse a rotating carousel of top project images at the top of the page.
-- Explore a grid of project cards, each showing a project image and name.
-- Click a card to flip or reveal a project description with a smooth animation.
-- Images load with a subtle skeleton loader for a polished experience.
+## 🎨 Design Features
 
-### Contact Information
+- **Hamburger Menu**: Consistent navigation using PrimeReact Sidebar
+- **Glass Effect**: Modern backdrop blur styling throughout
+- **Card Animations**: Interactive project cards with flip effects
+- **Professional Theme**: Lara Light Blue PrimeReact theme
+- **Mobile-First**: Responsive design that works on all devices
 
-- Contact details are always easy to find on the home page and in the site footer.
-- Reach out by phone or visit the office using the provided address.
-
-## Features
-
-- Mobile-first, responsive design for all devices
-- Modern, professional look with subtle construction-themed animations
-- Fast image loading and smooth transitions
-- Easy navigation between Home and Gallery
-
-Enjoy exploring our work and learning more about Dilbeck & Sons Construction!
-
-## Development
-
-This is a [Next.js](https://nextjs.org) project built with modern web technologies.
-
-### Tech Stack
-
-- **Framework:** Next.js 15.3.5 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS + PrimeFlex
-- **UI Components:** PrimeReact (Lara Light Blue theme)
-- **Animations:** Anime.js
-- **Icons:** PrimeIcons
-- **Deployment:** Netlify (Static Export)
-
-### Getting Started
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Run the development server:
-
-```bash
-npm run dev
-```
-
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production (static export)
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run export` - Build and export static files
-
-### Project Structure
+## 📁 Project Structure
 
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── page.tsx           # Home page
-│   ├── gallery/page.tsx   # Gallery page
-│   ├── layout.tsx         # Root layout
-│   └── sitemap.xml        # SEO sitemap
+│   ├── contact/           # Contact page
+│   ├── gallery/           # Gallery page
+│   └── layout.tsx         # Root layout with PrimeReactProvider
 ├── components/            # Reusable components
-│   ├── common/           # Shared components (Button, GearBackground)
-│   ├── layout/           # Layout components (Header, Footer)
-│   ├── home/             # Home page components (Hero, AboutSection)
-│   ├── projectGallery/   # Gallery components (Carousel, ProjectGrid, ProjectCard)
-│   └── inputs/           # Form input components (future)
+│   ├── common/           # Shared components
+│   ├── layout/           # Header, Footer
+│   ├── home/             # Home page components
+│   └── projectGallery/   # Gallery components
 ├── constants/            # Centralized data and types
 │   ├── types.ts          # TypeScript interfaces
-│   ├── galleryList.ts    # Gallery items data
 │   ├── companyInfo.ts    # Company information
 │   ├── navigation.ts     # Navigation items
-│   └── index.ts          # Barrel exports
-└── styles/               # Global styles and CSS variables
-    ├── globals.css       # Custom CSS variables and utilities
-    └── index.ts          # Style exports
+│   └── galleryList.ts    # Gallery data
+└── styles/              # Global styles and utilities
+    └── globals.css       # CSS variables and utilities
 ```
 
-### Adding Images
+## 🚀 Getting Started
 
-Place your project images in `public/gallery/` using the naming convention:
+1. **Install dependencies**:
 
-- `g-1.png`, `g-2.png`, `g-3.png`, etc. (currently g-1.png through g-9.png)
-- Update the gallery data in `src/constants/galleryList.ts` as needed
+   ```bash
+   npm install
+   ```
 
-### Data Management
+2. **Run development server**:
 
-All data is centralized in the `constants/` folder:
+   ```bash
+   npm run dev
+   ```
 
-- **Gallery items:** `src/constants/galleryList.ts`
-- **Company info:** `src/constants/companyInfo.ts`
-- **Navigation:** `src/constants/navigation.ts`
-- **Types:** `src/constants/types.ts`
+3. **Build for production**:
 
-### Deployment
+   ```bash
+   npm run build
+   ```
 
-This project is configured for deployment on Netlify:
+4. **Export static files** (for Netlify):
+   ```bash
+   npm run export
+   ```
 
-- **Domain:** dilbeck.netlify.app
-- **Build Command:** `npm run build`
-- **Publish Directory:** `out`
-- **Static Export:** Configured for optimal performance
+## 🌐 Deployment
 
-## Learn More
+The site is configured for deployment on Netlify at [dilbeck.netlify.app](https://dilbeck.netlify.app).
 
-To learn more about the technologies used:
+- Static export configuration in `next.config.ts`
+- Netlify configuration in `netlify.toml`
+- Proper redirects and headers for production
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [PrimeReact Documentation](https://primereact.org/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Anime.js Documentation](https://animejs.com/)
-- [Netlify Documentation](https://docs.netlify.com/)
+## 📝 Version History
 
-## Deploy on Netlify
+See [CHANGELOG.md](./CHANGELOG.md) for detailed version history and updates.
 
-This project is already configured for Netlify deployment. Simply connect your repository to Netlify and it will automatically build and deploy to dilbeck.netlify.app.
+**Current Version**: 1.2.0 - Major UI improvements with hamburger menu, PrimeReact components, and Contact page
 
-For manual deployment:
+## 🎯 Key Improvements in v1.2.0
 
-1. Run `npm run build` to generate static files
-2. Deploy the `out` directory to your hosting provider
+- **Hamburger Menu**: Consistent navigation experience across desktop and mobile
+- **PrimeReact Components**: Enhanced theming with Card, Button, and Sidebar components
+- **Contact Page**: New page with company information and Google Maps integration
+- **Professional Styling**: Improved visual consistency and user experience
+- **Better Accessibility**: Proper ARIA labels and semantic HTML structure
+
+## 📞 Contact Information
+
+- **Phone**: (555) 123-4567
+- **Address**: 123 Construction Ave, Building City, BC 12345
+- **Hours**: Monday-Friday 7:00 AM - 5:00 PM, Saturday 8:00 AM - 2:00 PM
+- **Website**: [dilbeck.netlify.app](https://dilbeck.netlify.app)
+
+---
+
+Built with ❤️ using modern web technologies for a professional construction company website.

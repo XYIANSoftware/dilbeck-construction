@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.2.0] - Major UI Improvements & Contact Page
+
+### Added
+
+- Added new Contact page at `/contact` with company information and Google Maps embed
+- Added hours of operation to company info constants
+- Added Contact navigation item to the menu
+- Implemented hamburger menu using PrimeReact Sidebar for consistent desktop/mobile experience
+- Added PrimeReactProvider wrapper for proper theming and ripple effects
+- Added global PrimeReact theme, core styles, icons, and PrimeFlex imports
+
+### Updated
+
+- Refactored Header to use PrimeReact Sidebar with hamburger menu
+- Updated ProjectCard to use PrimeReact Card component for better theming
+- Enhanced navigation with icons and professional styling
+- Improved overall PrimeReact theming throughout the application
+- Updated company assets to use D_logo.png and front_dns.jpg
+- Added favicon using D_logo.ico
+
+### Technical Improvements
+
+- Proper PrimeReact theming with lara-light-blue theme
+- Consistent UI components using PrimeReact Card, Button, Sidebar
+- Better mobile responsiveness with hamburger menu
+- Enhanced user experience with smooth animations and transitions
+- Improved accessibility with proper ARIA labels and semantic HTML
+
 ## [1.1.3] - Gallery Images Integration
 
 ### Updated

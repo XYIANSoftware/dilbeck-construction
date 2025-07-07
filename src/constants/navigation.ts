@@ -14,4 +14,9 @@ export const navigationItems: NavItem[] = [
     href: '/gallery',
     icon: 'pi-images',
   },
+  {
+    label: 'Contact',
+    href: '/contact',
+    icon: 'pi-phone',
+  },
 ];

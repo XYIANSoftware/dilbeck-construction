@@ -18,10 +18,10 @@ export function Hero() {
       </div>
       <div className="flex-1 flex justify-center">
         <Image
-          src="/office-team.jpg"
-          alt={`${companyInfo.name} Team`}
-          width={320}
-          height={240}
+          src="/front_dns.jpg"
+          alt={`${companyInfo.name} Front Office`}
+          width={400}
+          height={300}
           className="rounded-xl shadow-md object-cover w-full max-w-xs md:max-w-sm"
         />
       </div>

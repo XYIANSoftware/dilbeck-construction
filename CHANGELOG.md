@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.1] - Netlify Deployment Configuration
+
+### Added
+
+- Added Netlify deployment configuration with `netlify.toml`
+- Updated Next.js config for static export with `output: 'export'`
+- Added proper asset prefix for production deployment
+- Configured unoptimized images for static export
+- Added trailing slash support for Netlify compatibility
+
+### Updated
+
+- Updated sitemap.xml to use correct Netlify domain (dilbeck.netlify.app)
+- Updated company info to include Netlify website URL
+- Added export script to package.json for static build
+- Configured proper redirects and headers for Netlify
+
+### Technical Improvements
+
+- Ensured compatibility with both local development and Netlify deployment
+- Added security headers for production deployment
+- Configured proper static file serving for Netlify
+- Optimized build process for static hosting
+
 ## [1.1.0] - Organized Structure & Gallery Updates
 
 ### Added

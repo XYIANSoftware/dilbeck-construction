@@ -2,7 +2,9 @@
 
 Welcome to the official website for Dilbeck & Sons Construction!
 
-**Version:** 1.1.0
+**Version:** 1.1.1
+
+**Live Site:** [https://dilbeck.netlify.app](https://dilbeck.netlify.app)
 
 ## How to Use This Website
 
@@ -46,6 +48,7 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 - **UI Components:** PrimeReact (Lara Light Blue theme)
 - **Animations:** Anime.js
 - **Icons:** PrimeIcons
+- **Deployment:** Netlify (Static Export)
 
 ### Getting Started
 
@@ -66,9 +69,10 @@ npm run dev
 ### Available Scripts
 
 - `npm run dev` - Start development server
-- `npm run build` - Build for production
+- `npm run build` - Build for production (static export)
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run export` - Build and export static files
 
 ### Project Structure
 
@@ -112,6 +116,15 @@ All data is centralized in the `constants/` folder:
 - **Navigation:** `src/constants/navigation.ts`
 - **Types:** `src/constants/types.ts`
 
+### Deployment
+
+This project is configured for deployment on Netlify:
+
+- **Domain:** dilbeck.netlify.app
+- **Build Command:** `npm run build`
+- **Publish Directory:** `out`
+- **Static Export:** Configured for optimal performance
+
 ## Learn More
 
 To learn more about the technologies used:
@@ -120,9 +133,13 @@ To learn more about the technologies used:
 - [PrimeReact Documentation](https://primereact.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Anime.js Documentation](https://animejs.com/)
+- [Netlify Documentation](https://docs.netlify.com/)
 
-## Deploy on Vercel
+## Deploy on Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is already configured for Netlify deployment. Simply connect your repository to Netlify and it will automatically build and deploy to dilbeck.netlify.app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For manual deployment:
+
+1. Run `npm run build` to generate static files
+2. Deploy the `out` directory to your hosting provider

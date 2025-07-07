@@ -1,3 +1,7 @@
+![D_logo](https://github.com/user-attachments/assets/9ffd05ba-0e3d-49b9-985d-d647f44897f7)
+
+05ea7d1c16640bf95668c9447eb71a348393a1
+
 # Dilbeck & Sons Construction
 
 A modern, professional website for Dilbeck & Sons Construction - a family-owned general contracting company serving Monterey, CA since 1978.

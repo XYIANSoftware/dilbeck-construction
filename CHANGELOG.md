@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.1.0] - Organized Structure & Gallery Updates
+
+### Added
+
+- Created organized folder structure with `constants/` and `styles/` folders
+- Added strongly typed interfaces for all data structures
+- Created `GalleryItem` interface with comprehensive properties (projectName, details, longDetails, location, imgSrc, pictureName, alt, category, year, client)
+- Added `galleryList.ts` with 10 gallery items using new naming convention (g-1.png through g-10.png)
+- Created `companyInfo.ts` with centralized company information
+- Created `navigation.ts` with navigation items
+- Added `types.ts` with all TypeScript interfaces
+- Created `globals.css` with custom CSS variables and utility classes
+- Added barrel exports for all constants and styles
+
+### Updated
+
+- Updated all components to use constants from centralized location
+- Refactored GalleryCarousel to use new CarouselImage interface
+- Updated ProjectCard to use GalleryItem interface with proper property names
+- Updated ProjectGrid to use galleryItems from constants
+- Updated Header and Footer to use company info from constants
+- Updated Hero component to use company info from constants
+- Applied glass-effect styling throughout components
+- Updated image paths to use new naming convention (g-1.png, g-2.png, etc.)
+
+### Technical Improvements
+
+- Improved type safety with strongly typed interfaces
+- Centralized data management for easier maintenance
+- Added custom CSS variables for consistent theming
+- Improved component organization and reusability
+- Enhanced maintainability with barrel exports
+
 ## [1.0.0] - Complete Initial Implementation
 
 ### Added

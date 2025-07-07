@@ -2,7 +2,7 @@
 
 Welcome to the official website for Dilbeck & Sons Construction!
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 
 ## How to Use This Website
 
@@ -77,19 +77,40 @@ src/
 ├── app/                    # Next.js App Router pages
 │   ├── page.tsx           # Home page
 │   ├── gallery/page.tsx   # Gallery page
-│   └── layout.tsx         # Root layout
+│   ├── layout.tsx         # Root layout
+│   └── sitemap.xml        # SEO sitemap
 ├── components/            # Reusable components
 │   ├── common/           # Shared components (Button, GearBackground)
 │   ├── layout/           # Layout components (Header, Footer)
 │   ├── home/             # Home page components (Hero, AboutSection)
 │   ├── projectGallery/   # Gallery components (Carousel, ProjectGrid, ProjectCard)
 │   └── inputs/           # Form input components (future)
-└── globals.css           # Global styles
+├── constants/            # Centralized data and types
+│   ├── types.ts          # TypeScript interfaces
+│   ├── galleryList.ts    # Gallery items data
+│   ├── companyInfo.ts    # Company information
+│   ├── navigation.ts     # Navigation items
+│   └── index.ts          # Barrel exports
+└── styles/               # Global styles and CSS variables
+    ├── globals.css       # Custom CSS variables and utilities
+    └── index.ts          # Style exports
 ```
 
 ### Adding Images
 
-Place your project images in `public/gallery/` and update the image paths in the component data.
+Place your project images in `public/gallery/` using the naming convention:
+
+- `g-1.png`, `g-2.png`, `g-3.png`, etc. (up to g-10.png)
+- Update the gallery data in `src/constants/galleryList.ts` as needed
+
+### Data Management
+
+All data is centralized in the `constants/` folder:
+
+- **Gallery items:** `src/constants/galleryList.ts`
+- **Company info:** `src/constants/companyInfo.ts`
+- **Navigation:** `src/constants/navigation.ts`
+- **Types:** `src/constants/types.ts`
 
 ## Learn More
 

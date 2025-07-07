@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from 'primereact/button';
 import { companyInfo } from '@/constants';

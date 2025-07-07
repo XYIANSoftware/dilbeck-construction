@@ -5,7 +5,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import '@/styles/globals.css';
-import { Header } from '@/components/layout/Header';
+import CraneHamburger from '@/components/common/CraneHamburger';
 import { Footer } from '@/components/layout/Footer';
 import ConstructionBackground from '@/components/common/ConstructionBackground';
 
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PrimeReactProvider>
           <ConstructionBackground />
           <div className="relative z-10 min-h-screen flex flex-col">
-            <Header />
+            <CraneHamburger />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>

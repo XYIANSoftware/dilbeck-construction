@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.3.0] - Animated Crane Hamburger & Dark Theme
+
+### Added
+
+- **Animated Crane Hamburger Menu**: Replaced simple hamburger with construction-themed animated crane icon
+- **Dark Construction Theme**: Complete theme overhaul with slate/amber color scheme
+- **Animated Background**: Construction-themed animated background with gears, bolts, and crane elements
+- **50% Transparency**: All component backgrounds now have 50% opacity for layered visual effect
+- **Anime.js Integration**: Smooth animations for hamburger menu and background elements
+
+### Updated
+
+- **Header Component**: Replaced with CraneHamburger component featuring animated crane icon
+- **Color Scheme**: Updated to dark theme with amber accents and slate backgrounds
+- **Glass Effects**: Enhanced transparency and backdrop blur effects throughout
+- **Navigation**: Improved sidebar styling with hover effects and better visual hierarchy
+- **Hero Section**: Updated styling to match dark theme with gradient text effects
+
+### Fixed
+
+- **Build Errors**: Resolved client component serialization issues
+- **Import Issues**: Fixed barrel export problems causing build failures
+- **Linter Errors**: Cleaned up all TypeScript and ESLint warnings
+
+### Technical Improvements
+
+- **Client Components**: Properly marked all interactive components with 'use client'
+- **Direct Imports**: Replaced barrel exports with direct imports to prevent serialization issues
+- **Animation Performance**: Optimized anime.js usage with error handling and fallbacks
+- **Theme Consistency**: Unified color scheme across all components and pages
+
 ## [1.2.0] - Major UI Improvements & Contact Page
 
 ### Added

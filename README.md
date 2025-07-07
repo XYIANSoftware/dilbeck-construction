@@ -2,7 +2,7 @@
 
 Welcome to the official website for Dilbeck & Sons Construction!
 
-**Version:** 1.1.2
+**Version:** 1.1.3
 
 **Live Site:** [https://dilbeck.netlify.app](https://dilbeck.netlify.app)
 
@@ -104,7 +104,7 @@ src/
 
 Place your project images in `public/gallery/` using the naming convention:
 
-- `g-1.png`, `g-2.png`, `g-3.png`, etc. (up to g-10.png)
+- `g-1.png`, `g-2.png`, `g-3.png`, etc. (currently g-1.png through g-9.png)
 - Update the gallery data in `src/constants/galleryList.ts` as needed
 
 ### Data Management

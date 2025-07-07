@@ -4,41 +4,15 @@ import { Carousel } from 'primereact/carousel';
 import { Skeleton } from 'primereact/skeleton';
 import Image from 'next/image';
 import { useState } from 'react';
-import { CarouselImage } from '@/constants';
+import { CarouselImage, galleryItems } from '@/constants';
 
 // Use first 5 items from gallery for carousel
-const topImages: CarouselImage[] = [
-  {
-    id: '1',
-    title: 'Modern Home',
-    src: '/gallery/g-1.png',
-    alt: 'Modern home exterior with clean lines and large windows',
-  },
-  {
-    id: '2',
-    title: 'Commercial Project',
-    src: '/gallery/g-2.png',
-    alt: 'Commercial building with modern facade and glass windows',
-  },
-  {
-    id: '3',
-    title: 'Historic Renovation',
-    src: '/gallery/g-3.png',
-    alt: 'Historic building renovation with preserved architectural details',
-  },
-  {
-    id: '4',
-    title: 'Custom Kitchen',
-    src: '/gallery/g-4.png',
-    alt: 'Custom kitchen with granite countertops and modern appliances',
-  },
-  {
-    id: '5',
-    title: 'Outdoor Living Space',
-    src: '/gallery/g-5.png',
-    alt: 'Outdoor deck with pergola and fire pit area',
-  },
-];
+const topImages: CarouselImage[] = galleryItems.slice(0, 5).map(item => ({
+  id: item.id,
+  title: item.projectName,
+  src: item.imgSrc,
+  alt: item.alt,
+}));
 
 function GalleryItem({ image }: { image: CarouselImage }) {
   const [loaded, setLoaded] = useState(false);

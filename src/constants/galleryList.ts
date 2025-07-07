@@ -3,6 +3,7 @@ import { GalleryItem } from './types';
 /**
  * Gallery items with strongly typed data
  * Images follow naming convention: g-1.png, g-2.png, etc.
+ * Available images: g-1.png through g-9.png
  */
 export const galleryItems: GalleryItem[] = [
   {
@@ -131,19 +132,5 @@ export const galleryItems: GalleryItem[] = [
     category: 'Basement',
     year: '2024',
     client: 'Private Residence',
-  },
-  {
-    id: '10',
-    projectName: 'Multi-Family Complex',
-    details: 'Multi-family residential complex with modern amenities and sustainable design.',
-    longDetails:
-      'This multi-family complex project showcases our ability to handle large-scale residential developments. The complex features modern amenities, sustainable design, and community spaces.',
-    location: 'Monterey, CA',
-    imgSrc: '/gallery/g-10.png',
-    pictureName: 'g-10.png',
-    alt: 'Multi-family residential complex with modern architecture',
-    category: 'Multi-Family',
-    year: '2023',
-    client: 'Property Developer',
   },
 ];

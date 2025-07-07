@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.3] - Gallery Images Integration
+
+### Updated
+
+- Updated gallery list to reflect actual available images (g-1.png through g-9.png)
+- Removed g-10.png reference since the image doesn't exist
+- Updated GalleryCarousel to dynamically use first 5 images from galleryItems array
+- Improved carousel data consistency by using centralized gallery data
+
+### Technical Improvements
+
+- Enhanced data consistency between carousel and gallery grid
+- Improved maintainability by using single source of truth for gallery data
+- Better error prevention by only referencing existing images
+- Cleaner code structure with dynamic carousel image generation
+
 ## [1.1.2] - Turbopack & Anime.js Import Fixes
 
 ### Fixed

@@ -7,7 +7,7 @@ import { Button } from 'primereact/button';
  */
 export function ServicesSection() {
   return (
-    <section className="w-full flex flex-col gap-6 py-8 px-4 glass-effect rounded-lg shadow-lg mt-6">
+    <section className="w-full flex flex-col gap-6 py-8 px-4 glass-effect rounded-lg shadow-lg mt-6 text-center">
       <h2 className="text-2xl font-semibold text-blue-900 mb-4">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">

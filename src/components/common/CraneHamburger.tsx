@@ -30,10 +30,14 @@ const CraneHamburger = () => {
   };
 
   const isActivePage = (href: string) => {
-    if (href === '/') {
-      return pathname === '/';
+    // Normalize pathname by removing trailing slash
+    const normalizedPathname = pathname.replace(/\/$/, '');
+    const normalizedHref = href.replace(/\/$/, '');
+
+    if (normalizedHref === '') {
+      return normalizedPathname === '';
     }
-    return pathname.startsWith(href);
+    return normalizedPathname === normalizedHref;
   };
 
   return (
@@ -46,9 +50,8 @@ const CraneHamburger = () => {
             src="/D_logo.png"
             alt={`${companyInfo.name} Logo`}
             width={115}
-            height={115}
+            height={64}
             className="object-contain"
-            style={{ width: '115px', height: 'auto' }}
             priority
           />
         </div>
@@ -107,16 +110,16 @@ const CraneHamburger = () => {
           {/* Main Navigation Section */}
           <div className="flex-1 p-6">
             <nav className="flex flex-col gap-3">
-              {navigationItems.map(item => {
+              {navigationItems.map((item, idx) => {
                 const isActive = isActivePage(item.href);
                 return (
                   <Button
                     key={item.href}
                     label={item.label}
-                    className={`w-full justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium transition-all duration-300 rounded-xl border shadow-sm hover:shadow-md ${
-                      isActive
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-600 shadow-md hover:shadow-lg transform scale-105'
-                        : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 border-transparent hover:border-blue-200'
+                    data-active={isActive ? 'true' : undefined}
+                    data-index={idx}
+                    className={`sidebar-btn w-full h-14 justify-center text-center p-button-text p-button-lg px-6 py-4 text-lg font-medium transition-all duration-300 rounded-xl border shadow-sm hover:shadow-md ${
+                      isActive ? `sidebar-active-btn sidebar-active-btn-${idx}` : ''
                     }`}
                     severity={isActive ? 'info' : 'secondary'}
                     onClick={() => {
@@ -162,6 +165,34 @@ const CraneHamburger = () => {
           75% {
             transform: rotate(-8deg);
           }
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.04);
+          }
+        }
+
+        .sidebar-active-btn {
+          background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%) !important;
+          color: #fff !important;
+          border: 2px solid #3b82f6 !important;
+          box-shadow: 0 0 0 4px #3b82f633, 0 8px 24px 0 #1d4ed833 !important;
+          animation: pulse 1.5s infinite !important;
+          z-index: 2;
+          position: relative;
+        }
+        .sidebar-active-btn .p-button-label {
+          animation: pulse 1.5s infinite !important;
+        }
+        .sidebar-btn {
+          background: none;
         }
       `}</style>
     </div>
